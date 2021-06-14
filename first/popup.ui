@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>popUp</class>
+ <widget class="QDialog" name="popUp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>160</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>popUp</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>210</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>246</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
