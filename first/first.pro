@@ -12,17 +12,20 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
-    popup.cpp
+    popup.cpp \
+    todo.cpp
 
 HEADERS += \
     mainwindow.h \
     menu.h \
-    popup.h
+    popup.h \
+    todo.h
 
 FORMS += \
     mainwindow.ui \
     menu.ui \
-    popup.ui
+    popup.ui \
+    todo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
