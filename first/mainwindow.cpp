@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QDate>
 #include<popup.h>
+#include<menu.h>
 #include <QDebug>
 #include <QCalendar>
 
@@ -12,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
+   // mydb.setDatabaseName()
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(Test()));
     timer->start(1000);
@@ -41,7 +44,7 @@ public:
 int i=0;
 void MainWindow:: Test()
 {  int k=0,i=0;
-    while(cl.flag==0&&i<=4){
+
         // A function to check the day if the day is changed then change the day flag to 0 and also swithd case
         /* if(momday= current day ){
          * current set num 1 ,2 3 ,4
@@ -51,25 +54,28 @@ void MainWindow:: Test()
        // QString NowDay= nowDay.weekDayName() ;
        // QString QCalendar::standaloneWeekDayName();
         //QTime now = QTime::currentTime();
+for(i=cl.flag;i<=4;i++){
 
+                      int x=1;
 
-                      int x=1;                                                qDebug()<<"checkin time";
-                      QString ms=cl.monday[k].toString();                      qDebug() << ms<<"K"<<k;
+                      qDebug()<<"checkin time";
+                      //using switch cASE to find the day then ues the day assing ms
+                      QString ms=cl.monday[i].toString();                      qDebug() << ms<<"K"<<k;
                       x=QString::compare(cl.ns, ms);                         //comparing current time and the given time
-                      ++k;
-                      i=k;
+
                          if(x==0){
-                                        cl.flag=1;                          // Alaram and popup also set flag to 1
+                                        cl.flag=1+i;                          // Alaram and popup also set flag to 1
                                         popUp PopUp;
                                         PopUp.setModal(true);
                                         PopUp.exec();
-                                        cl. flag=0;
+
 
                                       break;
 
                                   }
 
                     }
+
 
 
 }

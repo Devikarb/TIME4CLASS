@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "menu.h"
 #include <QApplication>
 #include <QString>
 
@@ -24,7 +25,8 @@ public:
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    //MainWindow w;
+    Menu w;
     w.show();
     return a.exec();
 }
