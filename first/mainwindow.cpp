@@ -8,13 +8,17 @@
 #include <QDebug>
 #include <QCalendar>
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
-   // mydb.setDatabaseName()
+Menu con;
+    if(!con.connOpen())
+    ui->label->setText("failed to connect");
+    else ui->label->setText("connected to DB");
+
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(Test()));
     timer->start(1000);
@@ -36,10 +40,10 @@ public:
     QTime Saturday[4];
     QTime n= QTime(12, 00, 00,000);             // n == 14:00:00
     QString ns=n.toString();
+    QString link, subname;
    int flag=0;
 
 }cl;
-
 
 int i=0;
 void MainWindow:: Test()
@@ -118,10 +122,47 @@ void MainWindow::checkTimer()
 
 
 void MainWindow::on_timeEditMon1_userTimeChanged(const QTime &time)
-{
-    cl.monday[0]=time;
-    qInfo( "time changed" );
+{  Menu con;
+    qInfo()<<"time handler";
 
+    cl.monday[0]=time;
+    if(!con.connOpen())
+    {
+                 qInfo()<<"not connected";
+                 return ;
+    }
+    con.connOpen();
+
+
+    QSqlQuery qry;
+     qInfo()<<time.toString();
+
+  //  qry.prepare("insert into timetable (time) values (' "+time.toString()+" ')");
+ //   qry.exec("insert into timetable (time) values (' "+time.toString()+" ')");
+    if( qry.exec("insert into timeTable (time) values (' "+time.toString()+" ')"))
+    {
+       qDebug() << "query success:";
+    }
+    else
+    {
+         qDebug() << "addPerson error:"
+                  << qry.lastError();
+    }
+
+    QSqlQuery query;
+      query.prepare("INSERT INTO timetable (time) VALUES (:time)");
+      query.bindValue(":time", time.toString());
+      if(query.exec())
+      {
+         qDebug() << "query success:";
+      }
+      else
+      {
+           qDebug() << "addPerson error:"
+                    << query.lastError();
+      }
+    qInfo( "time changed" );
+    con.close();
 
 
 }
@@ -180,5 +221,17 @@ void MainWindow::on_timeEditTue_3_userTimeChanged(const QTime &time)
 void MainWindow::on_timeEditTue_4_userTimeChanged(const QTime &time)
 {
      cl.tuesday[3]=time;
+}
+
+
+void MainWindow::on_label_2_linkActivated(const QString &link)
+{
+
+}
+
+
+void MainWindow::on_monLink1_editingFinished()
+{
+     cl.link=ui->monLink1->text();
 }
 

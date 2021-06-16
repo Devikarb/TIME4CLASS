@@ -16,6 +16,8 @@ class MainWindow : public QMainWindow
 
 
 public:
+
+
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
@@ -44,6 +46,10 @@ private slots:
     void on_timeEditTue_3_userTimeChanged(const QTime &time);
 
     void on_timeEditTue_4_userTimeChanged(const QTime &time);
+
+    void on_label_2_linkActivated(const QString &link);
+
+    void on_monLink1_editingFinished();
 
 private:
     Ui::MainWindow *ui;

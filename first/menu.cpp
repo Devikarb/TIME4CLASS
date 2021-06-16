@@ -8,6 +8,9 @@ Menu::Menu(QWidget *parent) :
     ui(new Ui::Menu)
 {
     ui->setupUi(this);
+    if(!connOpen())
+    ui->label->setText("failed to connect");
+    else ui->label->setText("connected to DB");
 }
 
 Menu::~Menu()
@@ -27,5 +30,11 @@ void Menu::on_pushButton_2_clicked()
 {
     todo = new Todo(this);
     todo->show();
+}
+
+
+void Menu::on_label_linkActivated(const QString &link)
+{
+
 }
 
