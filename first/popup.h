@@ -15,6 +15,9 @@ public:
     explicit popUp(QWidget *parent = nullptr);
     ~popUp();
 
+private slots:
+    void on_label_linkActivated(const QString &link);
+
 private:
     Ui::popUp *ui;
 };

@@ -7,6 +7,8 @@
 #include<menu.h>
 #include <QDebug>
 #include <QCalendar>
+#include "DatabaseCon.h"
+QTime tm;
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,14 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-Menu con;
-    if(!con.connOpen())
-    ui->label->setText("failed to connect");
-    else ui->label->setText("connected to DB");
-
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(Test()));
-    timer->start(1000);
 
 }
 
@@ -29,6 +23,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 class classReminder
 {
@@ -41,136 +36,102 @@ public:
     QTime n= QTime(12, 00, 00,000);             // n == 14:00:00
     QString ns=n.toString();
     QString link, subname;
-   int flag=0;
-
-}cl;
-
-int i=0;
-void MainWindow:: Test()
-{  int k=0,i=0;
-
-        // A function to check the day if the day is changed then change the day flag to 0 and also swithd case
-        /* if(momday= current day ){
-         * current set num 1 ,2 3 ,4
-         * compare with predayno if changed then }
-         */
-        QDate nowDay = QDate::currentDate();
-       // QString NowDay= nowDay.weekDayName() ;
-       // QString QCalendar::standaloneWeekDayName();
-        //QTime now = QTime::currentTime();
-for(i=cl.flag;i<=4;i++){
-
-                      int x=1;
-
-                      qDebug()<<"checkin time";
-                      //using switch cASE to find the day then ues the day assing ms
-                      QString ms=cl.monday[i].toString();                      qDebug() << ms<<"K"<<k;
-                      x=QString::compare(cl.ns, ms);                         //comparing current time and the given time
-
-                         if(x==0){
-                                        cl.flag=1+i;                          // Alaram and popup also set flag to 1
-                                        popUp PopUp;
-                                        PopUp.setModal(true);
-                                        PopUp.exec();
+  // int flag=0;
+           void addData(QTime Time,int no)
+           {
+                       DatabseCon con;
+                       qInfo()<<"time handler";
+                       int Hr=Time.hour();
+                       int Min=Time.minute();
+                       qDebug()<<"hr"<<Hr<<"min"<<Min;
+                       // cl.monday[0]=time;
+                       if(!con.connOpen())
+                       {
+                                    qInfo()<<"not connected";
+                                    return ;
+                       }
+                       con.connOpen();
 
 
-                                      break;
+                       QSqlQuery qry;
+                        qInfo()<<Time.toString();
+                       QSqlQuery query;
+                        query.prepare("update  Time_Table set hour=:monHr,minute=:monMin  where sno=:no");
+                        query.bindValue(":monHr", Hr);
+                        query.bindValue(":monMin", Min);
+                        query.bindValue(":no", no);
 
-                                  }
+                         if(query.exec())
+                         {
+                            qDebug() << "query success:";
+                         }
+                         else
+                         {
+                              qDebug() << "error:"
+                                       << query.lastError();
+                         }
+                       qInfo( "time changed" );
+                       con.cnnClose();
+                       }
+   void Addlink(QString link,int no)
 
-                    }
+
+            {
+                     Menu con;
+
+
+                     if(!con.connOpen())
+                     {
+                                  qInfo()<<"not connected";
+                                  return ;
+                     }
+                     con.connOpen();
 
 
 
-}
+                     QSqlQuery query;
+                      query.prepare("update  Time_Table set link='"+link+"'  where sno=:no");
 
-int MainWindow:: timeCheck()
-{
-    // QTime now = QTime::currentTime();
-     //qDebug()<<"checkin time";
-    // qDebug() << QTime::currentTime().toString(Qt::ISODate);
-    int j=0,x=1 ,i=0;
-   int k=0;
-   while(k<100)
+                      query.bindValue(":no", no);
+
+                       if(query.exec())
+                       {
+                          qDebug() << "query success:";
+                       }
+                       else
+                       {
+                            qDebug() << "error:"
+                                     << query.lastError();
+                       }
+                     qInfo( "link inserted" );
+                     con.close();
+           }
+       void loadFrmDB()
        {
-         /*  QString ms=cl.monday[i].toString();
-          // qDebug()<<cl.monday[i];
-             qInfo()<<i;
-
-            qInfo()<<ms;
-
-            qInfo()<<cl.ns;
-             qInfo()<<"iter";
-             qInfo()<<i;
-           x=QString::compare(cl.ns, ms);
-*/
-               k++;
-               qInfo()<<k;
-               if(k>10) break;
-
-    }
 
 
 
-}
+       }
 
-void MainWindow::checkTimer()
-{
+            }cl;
 
 
-}
+
+
+
+
 
 
 void MainWindow::on_timeEditMon1_userTimeChanged(const QTime &time)
-{  Menu con;
-    qInfo()<<"time handler";
-
-    cl.monday[0]=time;
-    if(!con.connOpen())
-    {
-                 qInfo()<<"not connected";
-                 return ;
-    }
-    con.connOpen();
-
-
-    QSqlQuery qry;
-     qInfo()<<time.toString();
-
-  //  qry.prepare("insert into timetable (time) values (' "+time.toString()+" ')");
- //   qry.exec("insert into timetable (time) values (' "+time.toString()+" ')");
-    if( qry.exec("insert into timeTable (time) values (' "+time.toString()+" ')"))
-    {
-       qDebug() << "query success:";
-    }
-    else
-    {
-         qDebug() << "addPerson error:"
-                  << qry.lastError();
-    }
-
-    QSqlQuery query;
-      query.prepare("INSERT INTO timetable (time) VALUES (:time)");
-      query.bindValue(":time", time.toString());
-      if(query.exec())
-      {
-         qDebug() << "query success:";
-      }
-      else
-      {
-           qDebug() << "addPerson error:"
-                    << query.lastError();
-      }
-    qInfo( "time changed" );
-    con.close();
-
+{
+    cl.addData(time,1);
 
 }
 
 
 void MainWindow::on_timeEditMon2_userTimeChanged(const QTime &time)
 {
-     cl.monday[1]=time;
+    cl.addData(time,2);
 
 }
 
@@ -179,48 +140,42 @@ void MainWindow::on_timeEditMon2_userTimeChanged(const QTime &time)
 
 void MainWindow::on_timeEditMon3_userTimeChanged(const QTime &time)
 {
-    cl.monday[2]=time;
+    cl.addData(time,3);
 }
 
 
 void MainWindow::on_timeEditMon4_userTimeChanged(const QTime &time)
 {
-     cl.monday[3]=time;
+    cl.addData(time,4);
 }
 
 
 
 
 
-void MainWindow::on_pushButton_3_clicked()
-{
-   timeCheck();
-
-
-}
 
 
 void MainWindow::on_timeEditTue_1_userTimeChanged(const QTime &time)
 {
-    cl.tuesday[0]=time;
+    cl.addData(time,5);
 }
 
 
 void MainWindow::on_timeEditTue_2_userTimeChanged(const QTime &time)
 {
-    cl.tuesday[1]=time;
+    cl.addData(time,6);
 }
 
 
 void MainWindow::on_timeEditTue_3_userTimeChanged(const QTime &time)
 {
-     cl.tuesday[2]=time;
+     cl.addData(time,6);
 }
 
 
 void MainWindow::on_timeEditTue_4_userTimeChanged(const QTime &time)
 {
-     cl.tuesday[3]=time;
+     cl.addData(time,7);
 }
 
 
@@ -231,7 +186,43 @@ void MainWindow::on_label_2_linkActivated(const QString &link)
 
 
 void MainWindow::on_monLink1_editingFinished()
+{  QString link=ui->monLink1->text();
+
+  cl.Addlink( link,1);
+
+}
+
+
+
+
+
+void MainWindow::on_lineEditmon_2_textChanged(const QString &arg1)
+{ QString link=ui->lineEditmon_2->text();
+
+    cl.Addlink( link,2);
+}
+
+
+void MainWindow::on_monlink3_textChanged(const QString &arg1)
 {
-     cl.link=ui->monLink1->text();
+    QString link=ui->monlink3->text();
+
+        cl.Addlink( link,2);
+}
+
+
+void MainWindow::on_monlink4_textChanged(const QString &arg1)
+{
+    QString link=ui->monlink4->text();
+
+        cl.Addlink( link,2);
+}
+
+
+void MainWindow::on_tuelink1_textChanged(const QString &arg1)
+{
+    QString link=ui->tuelink1->text();
+
+        cl.Addlink( link,2);
 }
 

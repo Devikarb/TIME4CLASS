@@ -16,6 +16,7 @@ SOURCES += \
     todo.cpp
 
 HEADERS += \
+    DatabaseCon.h \
     mainwindow.h \
     menu.h \
     popup.h \

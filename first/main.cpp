@@ -2,6 +2,7 @@
 #include "menu.h"
 #include <QApplication>
 #include <QString>
+#include<QDebug>
 
 class event {
 public:
