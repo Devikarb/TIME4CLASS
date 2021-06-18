@@ -15,6 +15,9 @@ public:
     explicit Todo(QWidget *parent = nullptr);
     ~Todo();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Todo *ui;
 };

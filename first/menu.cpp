@@ -74,7 +74,7 @@ void Menu:: Test()
        // QSqlQueryModel *modal= new QSqlQueryModel();
        con.connOpen();
        QSqlQuery *qry=new QSqlQuery(con.mydb);
-       qry->prepare("select hour,minute from Time_Table where sno=1");
+       qry->prepare("select hour,minute from Time_Table where sno=;j");
        qry->bindValue(":j", j);
        qry->exec();
        //  qDebug<<"size"<<qry->;
@@ -88,9 +88,9 @@ void Menu:: Test()
 
                    }
        qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute;
-       int samp=9,sampm=14;
-       //if(nowHr==dbHour&&nowMin==dbMinute)
-       if(samp==dbHour&&sampm==dbMinute)                        //comparing current time and the given time
+       int samp=2,sampm=40;
+       if(nowHr==dbHour&&nowMin==dbMinute)
+       //if(samp==dbHour&&sampm==dbMinute)                        //comparing current time and the given time
 
                    {
                            flag=1+i;                          // Alaram and popup also set flag to 1
