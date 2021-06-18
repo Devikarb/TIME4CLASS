@@ -69,7 +69,7 @@ void Menu:: Test()
                    flag=0;
                }
 
-       Menu con;
+      DatabseCon con;
        j=j+flag;
        // QSqlQueryModel *modal= new QSqlQueryModel();
        con.connOpen();

@@ -17,8 +17,9 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-
+void RemoveTodo();
 private:
+
     Ui::Todo *ui;
 };
 

@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    Menu con;
+   DatabseCon con;
     QSqlQueryModel *modal= new QSqlQueryModel();
     con.connOpen();
     QSqlQuery *qry=new QSqlQuery(con.mydb);

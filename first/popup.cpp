@@ -3,13 +3,14 @@
 #include "mainwindow.h"
 #include <menu.h>
 #include<QDebug>
+#include<DatabaseCon.h>
 
 popUp::popUp(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::popUp)
 {
     ui->setupUi(this);
-   Menu con;
+   DatabseCon con;
    QSqlQueryModel *modal= new QSqlQueryModel();
    con.connOpen();
    QSqlQuery *qry=new QSqlQuery(con.mydb);
