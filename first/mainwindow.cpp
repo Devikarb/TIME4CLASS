@@ -17,6 +17,33 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    Menu con;
+    QSqlQueryModel *modal= new QSqlQueryModel();
+    con.connOpen();
+    QSqlQuery *qry=new QSqlQuery(con.mydb);
+    qry->prepare("select  time,sub,link from Time_Table");
+    //qry->prepare("select * from Time_Table");
+    qry->exec();
+   while(qry->next())
+               {
+                       //  QVariant h=qry->value(0);
+                       QTime time1=qry->value(0).toTime();
+                       ui->MonTime_1->setTime(time1);
+                       QString sub1=qry->value(1).toString();
+                       ui->MonSub_1->setText(sub1);
+                       QString link1=qry->value(2).toString();
+                       ui->MonLink_1->setText(link1);
+
+                       QTime time2=qry->value(3).toTime();
+                       ui->MonTime_2->setTime(time2);
+                       QString sub2=qry->value(4).toString();
+                       ui->MonSub_2->setText(sub2);
+                       QString link2=qry->value(5).toString();
+                       ui->MonLink_2->setText(link2);
+
+
+                }
+
 }
 
 MainWindow::~MainWindow()
@@ -29,15 +56,11 @@ class classReminder
 {
 public:
 
-    QTime monday[4];
-    QTime tuesday[4];
-    QTime wednesday[4];
-    QTime Saturday[4];
-    QTime n= QTime(12, 00, 00,000);             // n == 14:00:00
-    QString ns=n.toString();
+};
+
     QString link, subname;
-  // int flag=0;
-           void addData(QTime Time,int no)
+
+           void MainWindow:: addTime(QTime Time,int no)
            {
                        DatabseCon con;
                        qInfo()<<"time handler";
@@ -56,10 +79,11 @@ public:
                        QSqlQuery qry;
                         qInfo()<<Time.toString();
                        QSqlQuery query;
-                        query.prepare("update  Time_Table set hour=:monHr,minute=:monMin  where sno=:no");
+                        query.prepare("update  Time_Table set hour=:monHr,minute=:monMin,time=:Time where sno=:no");
                         query.bindValue(":monHr", Hr);
                         query.bindValue(":monMin", Min);
                         query.bindValue(":no", no);
+                         query.bindValue(":Time", Time);
 
                          if(query.exec())
                          {
@@ -73,11 +97,11 @@ public:
                        qInfo( "time changed" );
                        con.cnnClose();
                        }
-   void Addlink(QString link,int no)
+   void MainWindow ::Addlink(QString link,int no)
 
 
             {
-                     Menu con;
+                       DatabseCon con;
 
 
                      if(!con.connOpen())
@@ -104,16 +128,42 @@ public:
                                      << query.lastError();
                        }
                      qInfo( "link inserted" );
-                     con.close();
+                    con.cnnClose();
            }
-       void loadFrmDB()
-       {
+
+   void MainWindow ::AddSub(QString Sub,int no)
+
+
+            {
+                       DatabseCon con;
+
+
+                     if(!con.connOpen())
+                     {
+                                  qInfo()<<"not connected";
+                                  return ;
+                     }
+                     con.connOpen();
 
 
 
-       }
+                     QSqlQuery query;
+                      query.prepare("update  Time_Table set sub='"+Sub+"'  where sno=:no");
 
-            }cl;
+                      query.bindValue(":no", no);
+
+                       if(query.exec())
+                       {
+                          qDebug() << "query success:";
+                       }
+                       else
+                       {
+                            qDebug() << "error:"
+                                     << query.lastError();
+                       }
+                     qInfo( "link inserted" );
+                    con.cnnClose();
+           }
 
 
 
@@ -122,107 +172,103 @@ public:
 
 
 
-void MainWindow::on_timeEditMon1_userTimeChanged(const QTime &time)
+
+
+
+
+
+
+
+
+
+
+//.............................
+
+
+
+
+void MainWindow::on_MonTime_1_userTimeChanged(const QTime &time)
 {
-    cl.addData(time,1);
-
+    addTime(time,1);
 }
 
 
-void MainWindow::on_timeEditMon2_userTimeChanged(const QTime &time)
+void MainWindow::on_MonSub_1_textEdited(const QString &arg1)
 {
-    cl.addData(time,2);
-
+  QString sub=ui->MonSub_1->text();
+  AddSub( sub,1);
 }
 
 
-
-
-void MainWindow::on_timeEditMon3_userTimeChanged(const QTime &time)
+void MainWindow::on_MonLink_1_textEdited(const QString &arg1)
 {
-    cl.addData(time,3);
+    QString link=ui->MonLink_1->text();
+
+      Addlink( link,1);
 }
 
-
-void MainWindow::on_timeEditMon4_userTimeChanged(const QTime &time)
+//.......................
+void MainWindow::on_MonTime_2_userTimeChanged(const QTime &time)
 {
-    cl.addData(time,4);
+     addTime(time,2);
 }
 
 
-
-
-
-
-
-void MainWindow::on_timeEditTue_1_userTimeChanged(const QTime &time)
+void MainWindow::on_MonSub_2_textEdited(const QString &arg1)
 {
-    cl.addData(time,5);
+    QString sub=ui->MonSub_2->text();
+    AddSub( sub,2);
 }
 
 
-void MainWindow::on_timeEditTue_2_userTimeChanged(const QTime &time)
+void MainWindow::on_MonLink_2_textEdited(const QString &arg1)
 {
-    cl.addData(time,6);
+    QString link=ui->MonLink_2->text();
+
+      Addlink( link,2);
 }
+//...........................
 
-
-void MainWindow::on_timeEditTue_3_userTimeChanged(const QTime &time)
+void MainWindow::on_MonTime_3_userTimeChanged(const QTime &time)
 {
-     cl.addData(time,6);
+     addTime(time,3);
 }
 
 
-void MainWindow::on_timeEditTue_4_userTimeChanged(const QTime &time)
+void MainWindow::on_MonSub_3_textEdited(const QString &arg1)
 {
-     cl.addData(time,7);
+    QString sub=ui->MonSub_3->text();
+    AddSub( sub,3);
+
 }
 
 
-void MainWindow::on_label_2_linkActivated(const QString &link)
+void MainWindow::on_MonLink_3_textEdited(const QString &arg1)
 {
+    QString link=ui->MonLink_3->text();
 
+      Addlink( link,3);
 }
 
-
-void MainWindow::on_monLink1_editingFinished()
-{  QString link=ui->monLink1->text();
-
-  cl.Addlink( link,1);
-
-}
-
-
-
-
-
-void MainWindow::on_lineEditmon_2_textChanged(const QString &arg1)
-{ QString link=ui->lineEditmon_2->text();
-
-    cl.Addlink( link,2);
-}
-
-
-void MainWindow::on_monlink3_textChanged(const QString &arg1)
+//..........................
+void MainWindow::on_MonTime_4_userTimeChanged(const QTime &time)
 {
-    QString link=ui->monlink3->text();
-
-        cl.Addlink( link,2);
+     addTime(time,4);
 }
 
 
-void MainWindow::on_monlink4_textChanged(const QString &arg1)
+void MainWindow::on_MonSub_4_textEdited(const QString &arg1)
 {
-    QString link=ui->monlink4->text();
-
-        cl.Addlink( link,2);
+    QString sub=ui->MonSub_4->text();
+    AddSub( sub,4);
 }
 
 
-void MainWindow::on_tuelink1_textChanged(const QString &arg1)
+void MainWindow::on_MonLink_4_textEdited(const QString &arg1)
 {
-    QString link=ui->tuelink1->text();
+    QString link=ui->MonLink_4->text();
 
-        cl.Addlink( link,2);
+      Addlink( link,4);
 }
 
+//................................

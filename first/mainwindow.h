@@ -32,40 +32,43 @@ private slots:
 
     //void checkTimer();
 
-
+void addTime(QTime Time,int no);
+void Addlink(QString link,int no);
+void AddSub(QString Sub,int no);
    //int timeCheck();
-    void on_timeEditMon1_userTimeChanged(const QTime &time);
-
-    void on_timeEditMon2_userTimeChanged(const QTime &time);
-
-    void on_timeEditMon3_userTimeChanged(const QTime &time);
-
-    void on_timeEditMon4_userTimeChanged(const QTime &time);
 
 
 
 
-    void on_timeEditTue_1_userTimeChanged(const QTime &time);
-
-    void on_timeEditTue_2_userTimeChanged(const QTime &time);
-
-    void on_timeEditTue_3_userTimeChanged(const QTime &time);
-
-    void on_timeEditTue_4_userTimeChanged(const QTime &time);
-
-    void on_label_2_linkActivated(const QString &link);
-
-    void on_monLink1_editingFinished();
 
 
 
-    void on_lineEditmon_2_textChanged(const QString &arg1);
 
-    void on_monlink3_textChanged(const QString &arg1);
 
-    void on_monlink4_textChanged(const QString &arg1);
 
-    void on_tuelink1_textChanged(const QString &arg1);
+    void on_MonTime_1_userTimeChanged(const QTime &time);
+
+    void on_MonSub_1_textEdited(const QString &arg1);
+
+    void on_MonLink_1_textEdited(const QString &arg1);
+
+    void on_MonTime_2_userTimeChanged(const QTime &time);
+
+    void on_MonSub_2_textEdited(const QString &arg1);
+
+    void on_MonLink_2_textEdited(const QString &arg1);
+
+    void on_MonTime_3_userTimeChanged(const QTime &time);
+
+    void on_MonSub_3_textEdited(const QString &arg1);
+
+    void on_MonLink_3_textEdited(const QString &arg1);
+
+    void on_MonTime_4_userTimeChanged(const QTime &time);
+
+    void on_MonSub_4_textEdited(const QString &arg1);
+
+    void on_MonLink_4_textEdited(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

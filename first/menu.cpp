@@ -69,15 +69,15 @@ void Menu:: Test()
                    flag=0;
                }
 
-      Menu con;
+       Menu con;
        j=j+flag;
-      // QSqlQueryModel *modal= new QSqlQueryModel();
+       // QSqlQueryModel *modal= new QSqlQueryModel();
        con.connOpen();
        QSqlQuery *qry=new QSqlQuery(con.mydb);
        qry->prepare("select hour,minute from Time_Table where sno=1");
        qry->bindValue(":j", j);
        qry->exec();
-     //  qDebug<<"size"<<qry->;
+       //  qDebug<<"size"<<qry->;
 
        while(qry->next())
                   {
