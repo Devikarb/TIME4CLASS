@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     qry->prepare("select  time,sub,link from Time_Table");
     //qry->prepare("select * from Time_Table");
     qry->exec();
-   while(qry->next())
+   if(qry->next())
                {
                        //  QVariant h=qry->value(0);
                        QTime time1=qry->value(0).toTime();
@@ -34,13 +34,21 @@ MainWindow::MainWindow(QWidget *parent)
                        QString link1=qry->value(2).toString();
                        ui->MonLink_1->setText(link1);
 
-                       QTime time2=qry->value(3).toTime();
-                       ui->MonTime_2->setTime(time2);
-                       QString sub2=qry->value(4).toString();
-                       ui->MonSub_2->setText(sub2);
-                       QString link2=qry->value(5).toString();
-                       ui->MonLink_2->setText(link2);
 
+
+
+                }
+   if(qry->next())
+               {
+
+
+                       QTime time2=qry->value(0).toTime();
+                       ui->MonTime_2->setTime(time2);
+                       QString sub2=qry->value(1).toString();
+                       ui->MonSub_2->setText(sub2);
+                       QString link2=qry->value(2).toString();
+                       ui->MonLink_2->setText(link2);
+                        qDebug()<<time2<<sub2;
 
                 }
 

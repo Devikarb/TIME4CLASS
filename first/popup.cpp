@@ -17,6 +17,7 @@ popUp::popUp(QWidget *parent) :
    qry->exec();
    modal->setQuery(*qry);
    ui->listView->setModel(modal);
+    QApplication::beep() ;
 
 }
 
