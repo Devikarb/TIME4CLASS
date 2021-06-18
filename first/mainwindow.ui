@@ -14,333 +14,525 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>160</y>
-      <width>971</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Monday</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_1">
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="MonLink_1">
-         <property name="accessibleName">
-          <string>link</string>
-         </property>
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="MonTime_1"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="MonSub_1">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="MonTime_2"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="MonLink_2">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="MonSub_2">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="MonSub_3">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="MonTime_3"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="MonLink_3">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_6">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="MonTime_4"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="MonLink_4">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="MonSub_4">
-         <property name="inputMask">
-          <string/>
-         </property>
-         <property name="text">
-          <string> Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>270</y>
-      <width>971</width>
-      <height>115</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>tuesday</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_12">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon1_2"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEditmon_5">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink1">
-         <property name="accessibleName">
-          <string>link</string>
-         </property>
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_13">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon2_2"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink2">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEdit_5">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon3_2"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink3">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEdit_6">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_14">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon4_2"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink4">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEdit_7">
-         <property name="inputMask">
-          <string/>
-         </property>
-         <property name="text">
-          <string> Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>390</y>
-      <width>971</width>
-      <height>115</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>tuesday</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_15">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon1_3"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEditmon_6">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink1_2">
-         <property name="accessibleName">
-          <string>link</string>
-         </property>
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_16">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon2_3"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink2_2">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEdit_8">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_5">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon3_3"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink3_2">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEdit_9">
-         <property name="text">
-          <string>Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout_17">
-       <item row="0" column="0">
-        <widget class="QTimeEdit" name="timeEditMon4_3"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="tuelink4_2">
-         <property name="text">
-          <string>Link</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="lineEdit_10">
-         <property name="inputMask">
-          <string/>
-         </property>
-         <property name="text">
-          <string> Enter Subject Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_19">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Monday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Tuesday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Wednesday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Thursday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string> Friday</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_11">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_1">
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="MonSub_1">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="MonLink_1">
+              <property name="accessibleName">
+               <string>link</string>
+              </property>
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="MonTime_1"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="MonTime_2"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="MonLink_2">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="MonSub_2">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="MonLink_3">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="MonTime_3"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="MonSub_3">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="MonTime_4"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="MonLink_4">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="MonSub_4">
+              <property name="inputMask">
+               <string/>
+              </property>
+              <property name="text">
+               <string> Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="TuesTime_1"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="TuesSub_1">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="TuesLink_1">
+              <property name="accessibleName">
+               <string>link</string>
+              </property>
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_13">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="TuesTime_2"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="TuesSub_2">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="TuesLink_2">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="TuesTime_3"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="TuesLink_3">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="TuesSub_3">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_14">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="TuesTime_4"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="TuesLink_4">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="TuesSub_4">
+              <property name="inputMask">
+               <string/>
+              </property>
+              <property name="text">
+               <string> Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_15">
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="WedSub_1">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="WedLink_1">
+              <property name="accessibleName">
+               <string>link</string>
+              </property>
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="WedTime_1"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_16">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="WedTime_2"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="WedLink_2">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="WedSub_2">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="WedTime_3"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="WedSub_3">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="WedLink_3">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_17">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="WedTime_4"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="WedLink_4">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="WedSub_4">
+              <property name="inputMask">
+               <string/>
+              </property>
+              <property name="text">
+               <string> Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_18">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="ThurTime_1"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="ThurLink_1">
+              <property name="accessibleName">
+               <string>link</string>
+              </property>
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="ThurSub_1">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_19">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="ThurTime_2"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="ThurLink_2">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="ThurSub_2">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="ThurTime_3"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="ThurLink_3">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="ThurSub_3">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_20">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="ThurTime_4"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="ThurLink_4">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="ThurSub_4">
+              <property name="inputMask">
+               <string/>
+              </property>
+              <property name="text">
+               <string> Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_21">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="FriTime_1"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="FriSub_1">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="FriLink_1">
+              <property name="accessibleName">
+               <string>link</string>
+              </property>
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_22">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="FriTime_2"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="FriLink_2">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="FriSub_2">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="FriSub_3">
+              <property name="text">
+               <string>Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="FriTime_3"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="FriLink_3">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_23">
+            <item row="0" column="0">
+             <widget class="QTimeEdit" name="FriTime_4"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="FriLink_4">
+              <property name="text">
+               <string>Link</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="FriSub_4">
+              <property name="inputMask">
+               <string/>
+              </property>
+              <property name="text">
+               <string> Enter Subject Name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -348,7 +540,7 @@
      <x>0</x>
      <y>0</y>
      <width>1124</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
