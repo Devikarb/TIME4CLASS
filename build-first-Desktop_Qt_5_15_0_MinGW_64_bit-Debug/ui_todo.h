@@ -11,13 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,11 +26,12 @@ class Ui_Todo
 {
 public:
     QWidget *centralwidget;
-    QWidget *gridLayoutWidget;
-    QGridLayout *gridLayout;
     QPushButton *pushButton;
     QLineEdit *lineEdit;
-    QCheckBox *checkBox;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -41,21 +42,24 @@ public:
         Todo->resize(800, 600);
         centralwidget = new QWidget(Todo);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(460, 450, 93, 28));
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(450, 410, 113, 22));
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(180, 340, 211, 181));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(79, 70, 571, 301));
+        gridLayoutWidget->setGeometry(QRect(370, 200, 160, 80));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(600, 440, 93, 28));
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(590, 410, 113, 22));
-        checkBox = new QCheckBox(centralwidget);
-        checkBox->setObjectName(QString::fromUtf8("checkBox"));
-        checkBox->setGeometry(QRect(110, 430, 81, 20));
         Todo->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Todo);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -74,7 +78,7 @@ public:
     {
         Todo->setWindowTitle(QCoreApplication::translate("Todo", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("Todo", "ADD", nullptr));
-        checkBox->setText(QCoreApplication::translate("Todo", "CheckBox", nullptr));
+        lineEdit->setText(QCoreApplication::translate("Todo", "Enter TODO", nullptr));
     } // retranslateUi
 
 };
