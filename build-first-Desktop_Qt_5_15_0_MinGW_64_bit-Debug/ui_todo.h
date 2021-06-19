@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -32,6 +33,8 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
+    QGridLayout *gridLayout_2;
+    QFrame *frame;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -39,7 +42,7 @@ public:
     {
         if (Todo->objectName().isEmpty())
             Todo->setObjectName(QString::fromUtf8("Todo"));
-        Todo->resize(800, 600);
+        Todo->resize(650, 700);
         centralwidget = new QWidget(Todo);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton = new QPushButton(centralwidget);
@@ -60,10 +63,24 @@ public:
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
+        gridLayout_2 = new QGridLayout(centralwidget);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        frame = new QFrame(centralwidget);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+
+        gridLayout_2->addWidget(frame, 0, 0, 1, 1);
+
         Todo->setCentralWidget(centralwidget);
+        frame->raise();
+        pushButton->raise();
+        lineEdit->raise();
+        verticalLayoutWidget->raise();
+        gridLayoutWidget->raise();
         menubar = new QMenuBar(Todo);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 650, 25));
         Todo->setMenuBar(menubar);
         statusbar = new QStatusBar(Todo);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

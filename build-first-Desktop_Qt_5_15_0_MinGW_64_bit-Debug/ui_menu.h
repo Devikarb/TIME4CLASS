@@ -44,7 +44,7 @@ public:
     {
         if (Menu->objectName().isEmpty())
             Menu->setObjectName(QString::fromUtf8("Menu"));
-        Menu->resize(445, 620);
+        Menu->resize(600, 700);
         Menu->setStyleSheet(QString::fromUtf8("background-image: url(:/resources/img/background2.png);"));
         centralwidget = new QWidget(Menu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
