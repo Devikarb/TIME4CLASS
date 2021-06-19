@@ -52,14 +52,11 @@ void Menu:: Test()
               break;
        case 5:j= 17;
               break;
-      default:
+      default:j=1;
            break;
 
    }
 
-   // QDate nowDay = partsFromDate(nowDate);
-   // QString NowDay= nowDay.weekDayName() ;
-   // QString QCalendar::standaloneWeekDayName();
 
  for(i=flag;i<=4;i++){
        //int QDate::dayOfWeek(QCalendar cal)
@@ -71,14 +68,12 @@ void Menu:: Test()
 
       DatabseCon con;
        j=j+flag;
-       // QSqlQueryModel *modal= new QSqlQueryModel();
        con.connOpen();
        QSqlQuery *qry=new QSqlQuery(con.mydb);
-       qry->prepare("select hour,minute from Time_Table where sno=;j");
+       qry->prepare("select hour,minute from Time_Table where sno=:j");
        qry->bindValue(":j", j);
        qry->exec();
-       //  qDebug<<"size"<<qry->;
-
+       j++;
        while(qry->next())
                   {
                           //  QVariant h=qry->value(0);
@@ -87,10 +82,11 @@ void Menu:: Test()
                         //   qDebug()<<"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"<<h;
 
                    }
+
+
        qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute;
-       int samp=2,sampm=40;
-       if(nowHr==dbHour&&nowMin==dbMinute)
-       //if(samp==dbHour&&sampm==dbMinute)                        //comparing current time and the given time
+       if(nowHr==dbHour&&nowMin==dbMinute)//comparing current time and the given time
+
 
                    {
                            flag=1+i;                          // Alaram and popup also set flag to 1
@@ -99,7 +95,7 @@ void Menu:: Test()
                            PopUp.exec();
 
 
-                         break;
+
 
                      }
 

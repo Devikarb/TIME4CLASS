@@ -21,17 +21,16 @@ Todo::~Todo()
 }
 
 void Todo::on_pushButton_clicked()
-{ QString text = ui->lineEdit->text();
+{   QString text = ui->lineEdit->text();
     QString checkBoxText=text;
     QCheckBox* checkbox=new QCheckBox(checkBoxText);
     ui->verticalLayout->addWidget(checkbox);
-
-           QObject::connect(checkbox,&QCheckBox::stateChanged,this,&Todo::RemoveTodo);            //  this,&Todo::onAddWidget);
+    QObject::connect(checkbox,&QCheckBox::stateChanged,this,&Todo::RemoveTodo);            //  this,&Todo::onAddWidget);
 
 }
 
 void Todo::RemoveTodo()
-{ qDebug()<<"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
+{
     QCheckBox* checkbox=qobject_cast<QCheckBox*>(sender());
     delete checkbox;
 
