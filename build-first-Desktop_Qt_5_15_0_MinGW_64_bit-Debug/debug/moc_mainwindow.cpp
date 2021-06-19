@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "E:/Qt/TIME4CLASS/mainwindow.h"
+#include "../../../../../Desktop/OOP/group/febi/TIME4CLASS-7da344aeb2a238d03496dc76b00679c2f9f8ff91/first/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

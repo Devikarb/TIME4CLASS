@@ -5,6 +5,7 @@
 #include <QTimer>
 #include<QDebug>
 #include<DatabaseCon.h>
+#include<QPixmap>
 
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),
@@ -116,6 +117,7 @@ void Menu::on_pushButton_clicked()
 {
      mainWindow= new MainWindow(this);
      mainWindow->show();
+     mainWindow->setWindowTitle("Class Remainder");
 
 }
 
@@ -124,6 +126,7 @@ void Menu::on_pushButton_2_clicked()
 {
     todo = new Todo(this);
     todo->show();
+    todo->setWindowTitle("To-do list");
 }
 
 

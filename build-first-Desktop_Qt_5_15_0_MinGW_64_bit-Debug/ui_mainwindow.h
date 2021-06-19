@@ -17,6 +17,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -29,6 +30,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
+    QLabel *label_10;
     QHBoxLayout *horizontalLayout_19;
     QVBoxLayout *verticalLayout_3;
     QLabel *label;
@@ -39,9 +41,9 @@ public:
     QVBoxLayout *verticalLayout_11;
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout_1;
-    QLineEdit *MonSub_1;
-    QLineEdit *MonLink_1;
     QTimeEdit *MonTime_1;
+    QLineEdit *MonLink_1;
+    QLineEdit *MonSub_1;
     QGridLayout *gridLayout_2;
     QTimeEdit *MonTime_2;
     QLineEdit *MonLink_2;
@@ -122,6 +124,12 @@ public:
     QTimeEdit *FriTime_4;
     QLineEdit *FriLink_4;
     QLineEdit *FriSub_4;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label_6;
+    QLabel *label_7;
+    QLabel *label_8;
+    QLabel *label_9;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -129,11 +137,23 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1124, 780);
+        MainWindow->resize(1285, 760);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label_10 = new QLabel(centralwidget);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
+        label_10->setSizePolicy(sizePolicy);
+        label_10->setPixmap(QPixmap(QString::fromUtf8(":/resources/img/image1.png")));
+        label_10->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_10, 0, 0, 1, 1);
+
         horizontalLayout_19 = new QHBoxLayout();
         horizontalLayout_19->setObjectName(QString::fromUtf8("horizontalLayout_19"));
         verticalLayout_3 = new QVBoxLayout();
@@ -172,20 +192,20 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         gridLayout_1 = new QGridLayout();
         gridLayout_1->setObjectName(QString::fromUtf8("gridLayout_1"));
-        MonSub_1 = new QLineEdit(centralwidget);
-        MonSub_1->setObjectName(QString::fromUtf8("MonSub_1"));
+        MonTime_1 = new QTimeEdit(centralwidget);
+        MonTime_1->setObjectName(QString::fromUtf8("MonTime_1"));
 
-        gridLayout_1->addWidget(MonSub_1, 1, 0, 1, 1);
+        gridLayout_1->addWidget(MonTime_1, 0, 0, 1, 1);
 
         MonLink_1 = new QLineEdit(centralwidget);
         MonLink_1->setObjectName(QString::fromUtf8("MonLink_1"));
 
         gridLayout_1->addWidget(MonLink_1, 2, 0, 1, 1);
 
-        MonTime_1 = new QTimeEdit(centralwidget);
-        MonTime_1->setObjectName(QString::fromUtf8("MonTime_1"));
+        MonSub_1 = new QLineEdit(centralwidget);
+        MonSub_1->setObjectName(QString::fromUtf8("MonSub_1"));
 
-        gridLayout_1->addWidget(MonTime_1, 0, 0, 1, 1);
+        gridLayout_1->addWidget(MonSub_1, 1, 0, 1, 1);
 
 
         horizontalLayout->addLayout(gridLayout_1);
@@ -597,12 +617,50 @@ public:
         horizontalLayout_19->addLayout(verticalLayout_11);
 
 
-        gridLayout->addLayout(horizontalLayout_19, 0, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout_19, 2, 0, 1, 1);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalSpacer = new QSpacerItem(88, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setEnabled(true);
+        sizePolicy.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
+        label_6->setSizePolicy(sizePolicy);
+
+        horizontalLayout_2->addWidget(label_6);
+
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        sizePolicy.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
+        label_7->setSizePolicy(sizePolicy);
+
+        horizontalLayout_2->addWidget(label_7);
+
+        label_8 = new QLabel(centralwidget);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        sizePolicy.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
+        label_8->setSizePolicy(sizePolicy);
+
+        horizontalLayout_2->addWidget(label_8);
+
+        label_9 = new QLabel(centralwidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        sizePolicy.setHeightForWidth(label_9->sizePolicy().hasHeightForWidth());
+        label_9->setSizePolicy(sizePolicy);
+
+        horizontalLayout_2->addWidget(label_9);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1124, 25));
+        menubar->setGeometry(QRect(0, 0, 1285, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -616,16 +674,17 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Monday", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Tuesday", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "Wednesday", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "Thursday", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", " Friday", nullptr));
-        MonSub_1->setText(QCoreApplication::translate("MainWindow", "Enter Subject Name", nullptr));
+        label_10->setText(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Monday</span></p></body></html>", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Tuesday</span></p></body></html>", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Wednesday</span></p></body></html>", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Thursday</span></p></body></html>", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\"> Friday</span></p></body></html>", nullptr));
 #if QT_CONFIG(accessibility)
         MonLink_1->setAccessibleName(QCoreApplication::translate("MainWindow", "link", nullptr));
 #endif // QT_CONFIG(accessibility)
         MonLink_1->setText(QCoreApplication::translate("MainWindow", "Link", nullptr));
+        MonSub_1->setText(QCoreApplication::translate("MainWindow", "Enter Subject Name", nullptr));
         MonLink_2->setText(QCoreApplication::translate("MainWindow", "Link", nullptr));
         MonSub_2->setText(QCoreApplication::translate("MainWindow", "Enter Subject Name", nullptr));
         MonLink_3->setText(QCoreApplication::translate("MainWindow", "Link", nullptr));
@@ -681,6 +740,10 @@ public:
         FriLink_4->setText(QCoreApplication::translate("MainWindow", "Link", nullptr));
         FriSub_4->setInputMask(QString());
         FriSub_4->setText(QCoreApplication::translate("MainWindow", " Enter Subject Name", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">1st hour</span></p></body></html>", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">2nd hour</span></p></body></html>", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">3rd hour</span></p></body></html>", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">4th hour</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

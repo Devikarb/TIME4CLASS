@@ -11,10 +11,14 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,31 +27,86 @@ class Ui_Menu
 {
 public:
     QWidget *centralwidget;
+    QGridLayout *gridLayout;
+    QLabel *label_pic;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout;
     QPushButton *pushButton;
+    QSpacerItem *verticalSpacer;
     QPushButton *pushButton_2;
+    QSpacerItem *verticalSpacer_2;
     QPushButton *pushButton_3;
-    QLabel *label;
+    QSpacerItem *horizontalSpacer_3;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Menu)
     {
         if (Menu->objectName().isEmpty())
             Menu->setObjectName(QString::fromUtf8("Menu"));
-        Menu->resize(841, 600);
+        Menu->resize(445, 620);
+        Menu->setStyleSheet(QString::fromUtf8("background-image: url(:/resources/img/background2.png);"));
         centralwidget = new QWidget(Menu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label_pic = new QLabel(centralwidget);
+        label_pic->setObjectName(QString::fromUtf8("label_pic"));
+        label_pic->setPixmap(QPixmap(QString::fromUtf8(":/resources/img/image1.png")));
+        label_pic->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_pic, 0, 0, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalSpacer = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(280, 130, 201, 71));
+        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy);
+
+        verticalLayout->addWidget(pushButton);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Minimum);
+
+        verticalLayout->addItem(verticalSpacer);
+
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(280, 230, 201, 51));
+        sizePolicy.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
+        pushButton_2->setSizePolicy(sizePolicy);
+
+        verticalLayout->addWidget(pushButton_2);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Minimum);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(280, 310, 201, 61));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(350, 480, 55, 16));
+        sizePolicy.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
+        pushButton_3->setSizePolicy(sizePolicy);
+
+        verticalLayout->addWidget(pushButton_3);
+
+
+        horizontalLayout->addLayout(verticalLayout);
+
+        horizontalSpacer_3 = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_3);
+
+
+        gridLayout->addLayout(horizontalLayout, 1, 0, 1, 1);
+
         Menu->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(Menu);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -61,10 +120,10 @@ public:
     void retranslateUi(QMainWindow *Menu)
     {
         Menu->setWindowTitle(QCoreApplication::translate("Menu", "MainWindow", nullptr));
+        label_pic->setText(QString());
         pushButton->setText(QCoreApplication::translate("Menu", "CLASS REMINDER ", nullptr));
         pushButton_2->setText(QCoreApplication::translate("Menu", "TODO LIST ", nullptr));
         pushButton_3->setText(QCoreApplication::translate("Menu", "REMINDER", nullptr));
-        label->setText(QCoreApplication::translate("Menu", "TextLabel", nullptr));
     } // retranslateUi
 
 };
