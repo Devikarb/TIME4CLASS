@@ -3,6 +3,7 @@
 
 #include <QDialog>
 
+
 namespace Ui {
 class popUp;
 }
@@ -18,8 +19,12 @@ public:
 private slots:
     void on_label_linkActivated(const QString &link);
 
+    void on_pushButton_clicked();
+    void alarm();
+
 private:
     Ui::popUp *ui;
+
 };
 
 #endif // POPUP_H

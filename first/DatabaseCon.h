@@ -22,7 +22,8 @@ public:
     bool connOpen()
     {
         QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
-        mydb.setDatabaseName("C:\\sqlite\\sqlite-tools-win32-x86-3350500\\devikas.t4c");
+        mydb.setDatabaseName("time4class.db");
+
         if(!mydb.open())
         {
                      qInfo()<<"not connected";

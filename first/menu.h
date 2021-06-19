@@ -14,7 +14,7 @@ class Menu : public QMainWindow
     Q_OBJECT
 
 public:
-    QSqlDatabase mydb;
+    /*QSqlDatabase mydb;
     void cnnClose()
     {
       mydb.close();
@@ -35,7 +35,7 @@ public:
                      qInfo()<<"connected";
                      return true;
         }
-    }
+    }*/
 
     explicit Menu(QWidget *parent = nullptr);
     ~Menu();

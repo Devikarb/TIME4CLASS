@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     splash->show();
 
     //MainWindow w;
+   qDebug() << "App path : " << qApp->applicationDirPath();
     Menu w;
 
     QTimer::singleShot(3000,splash,SLOT(close));

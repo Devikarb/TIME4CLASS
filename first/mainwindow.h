@@ -70,6 +70,102 @@ void AddSub(QString Sub,int no);
 
     void on_MonLink_4_textEdited(const QString &arg1);
 
+    void on_TuesTime_1_userTimeChanged(const QTime &time);
+
+    void on_TuesSub_1_textEdited(const QString &arg1);
+
+    void on_TuesLink_1_textEdited(const QString &arg1);
+
+    void on_TuesTime_2_userTimeChanged(const QTime &time);
+
+    void on_TuesSub_2_textEdited(const QString &arg1);
+
+    void on_TuesLink_2_textEdited(const QString &arg1);
+
+    void on_TuesTime_3_userTimeChanged(const QTime &time);
+
+    void on_TuesSub_3_textEdited(const QString &arg1);
+
+    void on_TuesLink_3_textEdited(const QString &arg1);
+
+    void on_TuesTime_4_userTimeChanged(const QTime &time);
+
+    void on_TuesSub_4_textEdited(const QString &arg1);
+
+    void on_TuesLink_4_textEdited(const QString &arg1);
+
+    void on_WedTime_1_userTimeChanged(const QTime &time);
+
+    void on_WedSub_1_textEdited(const QString &arg1);
+
+    void on_WedLink_1_textEdited(const QString &arg1);
+
+    void on_WedTime_2_userTimeChanged(const QTime &time);
+
+    void on_WedSub_2_textEdited(const QString &arg1);
+
+    void on_WedLink_2_textEdited(const QString &arg1);
+
+    void on_WedTime_3_userTimeChanged(const QTime &time);
+
+    void on_WedSub_3_textEdited(const QString &arg1);
+
+    void on_WedLink_3_textEdited(const QString &arg1);
+
+    void on_WedTime_4_userTimeChanged(const QTime &time);
+
+    void on_WedSub_4_textEdited(const QString &arg1);
+
+    void on_WedLink_4_textEdited(const QString &arg1);
+
+    void on_ThurTime_1_userTimeChanged(const QTime &time);
+
+    void on_ThurSub_1_textEdited(const QString &arg1);
+
+    void on_ThurLink_1_textEdited(const QString &arg1);
+
+    void on_ThurTime_2_userTimeChanged(const QTime &time);
+
+    void on_ThurSub_2_textEdited(const QString &arg1);
+
+    void on_ThurLink_2_textEdited(const QString &arg1);
+
+    void on_ThurTime_3_userTimeChanged(const QTime &time);
+
+    void on_ThurSub_3_textEdited(const QString &arg1);
+
+    void on_ThurLink_3_textEdited(const QString &arg1);
+
+    void on_ThurTime_4_userTimeChanged(const QTime &time);
+
+    void on_ThurSub_4_textEdited(const QString &arg1);
+
+    void on_ThurLink_4_textEdited(const QString &arg1);
+
+    void on_FriTime_1_userTimeChanged(const QTime &time);
+
+    void on_FriSub_1_textEdited(const QString &arg1);
+
+    void on_FriLink_1_textEdited(const QString &arg1);
+
+    void on_FriTime_2_userTimeChanged(const QTime &time);
+
+    void on_FriSub_2_textEdited(const QString &arg1);
+
+    void on_FriLink_2_textEdited(const QString &arg1);
+
+    void on_FriTime_3_userTimeChanged(const QTime &time);
+
+    void on_FriSub_3_textEdited(const QString &arg1);
+
+    void on_FriLink_3_textEdited(const QString &arg1);
+
+    void on_FriTime_4_userTimeChanged(const QTime &time);
+
+    void on_FriSub_4_textEdited(const QString &arg1);
+
+    void on_FriLink_4_textEdited(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };
