@@ -35,6 +35,8 @@ public:
         if (popUp->objectName().isEmpty())
             popUp->setObjectName(QString::fromUtf8("popUp"));
         popUp->resize(425, 321);
+        popUp->setMinimumSize(QSize(425, 321));
+        popUp->setMaximumSize(QSize(425, 321));
         label = new QLabel(popUp);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(80, 40, 161, 20));

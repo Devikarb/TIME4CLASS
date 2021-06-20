@@ -49,7 +49,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Enter TODO</string>
+     <string>Enter Task</string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">

@@ -95,7 +95,7 @@ public:
     {
         Todo->setWindowTitle(QCoreApplication::translate("Todo", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("Todo", "ADD", nullptr));
-        lineEdit->setText(QCoreApplication::translate("Todo", "Enter TODO", nullptr));
+        lineEdit->setText(QCoreApplication::translate("Todo", "Enter Task", nullptr));
     } // retranslateUi
 
 };
