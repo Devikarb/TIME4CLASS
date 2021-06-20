@@ -36,7 +36,6 @@ public:
     QSpacerItem *verticalSpacer;
     QPushButton *pushButton_2;
     QSpacerItem *verticalSpacer_2;
-    QPushButton *pushButton_3;
     QSpacerItem *horizontalSpacer_3;
     QStatusBar *statusbar;
 
@@ -44,7 +43,10 @@ public:
     {
         if (Menu->objectName().isEmpty())
             Menu->setObjectName(QString::fromUtf8("Menu"));
-        Menu->resize(445, 620);
+        Menu->resize(600, 700);
+        Menu->setMinimumSize(QSize(600, 700));
+        Menu->setMaximumSize(QSize(600, 700));
+        Menu->setAutoFillBackground(true);
         Menu->setStyleSheet(QString::fromUtf8("background-image: url(:/resources/img/background2.png);"));
         centralwidget = new QWidget(Menu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -52,6 +54,7 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label_pic = new QLabel(centralwidget);
         label_pic->setObjectName(QString::fromUtf8("label_pic"));
+        label_pic->setAutoFillBackground(false);
         label_pic->setPixmap(QPixmap(QString::fromUtf8(":/resources/img/image1.png")));
         label_pic->setAlignment(Qt::AlignCenter);
 
@@ -90,13 +93,6 @@ public:
 
         verticalLayout->addItem(verticalSpacer_2);
 
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        sizePolicy.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy);
-
-        verticalLayout->addWidget(pushButton_3);
-
 
         horizontalLayout->addLayout(verticalLayout);
 
@@ -123,7 +119,6 @@ public:
         label_pic->setText(QString());
         pushButton->setText(QCoreApplication::translate("Menu", "CLASS REMINDER ", nullptr));
         pushButton_2->setText(QCoreApplication::translate("Menu", "TODO LIST ", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("Menu", "REMINDER", nullptr));
     } // retranslateUi
 
 };
