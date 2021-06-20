@@ -4,6 +4,7 @@
 #include<QPushButton>
 #include<QCheckBox>
 #include<DatabaseCon.h>
+#include<QPixmap>
 
 std::vector<QCheckBox*> checkBoxes;
 Todo::Todo(QWidget *parent) :
@@ -11,6 +12,8 @@ Todo::Todo(QWidget *parent) :
     ui(new Ui::Todo)
 {
     ui->setupUi(this);
+
+
     DatabseCon con;
     con.connOpen();
 
@@ -25,7 +28,7 @@ qry->exec();
                         QString text=qry->value(0).toString();
                         qDebug()<<text;
                         QCheckBox* checkbox=new QCheckBox(text);
-                        ui->verticalLayout->addWidget(checkbox);
+                        ui->verticalLayout_4->addWidget(checkbox);
                         QObject::connect(checkbox,&QCheckBox::stateChanged,this,&Todo::RemoveTodo);
 
 
@@ -46,7 +49,7 @@ void Todo::on_pushButton_clicked()
 {   QString text = ui->lineEdit->text();
     QString checkBoxText=text;
     QCheckBox* checkbox=new QCheckBox(checkBoxText);
-    ui->verticalLayout->addWidget(checkbox);
+    ui->verticalLayout_4->addWidget(checkbox);
     QObject::connect(checkbox,&QCheckBox::stateChanged,this,&Todo::RemoveTodo);
 
      DatabseCon con;
@@ -74,11 +77,32 @@ void Todo::on_pushButton_clicked()
 void Todo::RemoveTodo()
 {
     QCheckBox* checkbox=qobject_cast<QCheckBox*>(sender());
-    QString text = checkbox->objectName();
+    QString text = checkbox->text();
     //QString pLineEdit = jjjjj(QCheckBox*)pLine->widget();
      qDebug()<<text;
      qDebug()<<text;
     delete checkbox;
+     DatabseCon con;
+    con.connOpen();
+    QSqlQuery *qry=new QSqlQuery(con.mydb);
+ QString qstr="DELETE FROM  ToDo WHERE dicrp=('"+text+"' )";
+    qry->prepare(qstr);
+ qDebug() << qstr;
+    qry->bindValue(":text", text);
+
+
+
+
+        if(qry->exec())
+        {
+           qDebug() << "query success:";
+        }
+        else
+        {
+             qDebug() << "error:"
+                      << qry->lastError();
+        }
+
 
 
 }

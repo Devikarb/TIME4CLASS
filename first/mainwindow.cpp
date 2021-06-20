@@ -25,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     qry->prepare("select  time,sub,link from Time_Table");
     //qry->prepare("select * from Time_Table");
     qry->exec();
-    QTime time[20];
-    QString sub[20],link[20];
+    QTime time[30];
+    QString sub[21],link[30];
 
 
 int i=0;
@@ -49,28 +49,90 @@ int i=0;
 
 
    ui->MonTime_1->setTime(time[1]);
-   ui->MonSub_1->setText(sub[1]);
-   ui->MonLink_1->setText(link[1]);
+      ui->MonSub_1->setText(link[1]);
+      ui->MonLink_1->setText(sub[1]);
 
-   ui->MonTime_2->setTime(time[2]);
-   ui->MonSub_2->setText(sub[2]);
-   ui->MonLink_2->setText(link[2]);
+      ui->MonTime_2->setTime(time[2]);
+      ui->MonSub_2->setText(sub[2]);
+      ui->MonLink_2->setText(link[2]);
 
-   ui->MonTime_3->setTime(time[3]);
-   ui->MonSub_3->setText(sub[3]);
-   ui->MonLink_3->setText(link[3]);
 
-   ui->MonTime_4->setTime(time[4]);
-   ui->MonSub_4->setText(sub[4]);
-   ui->MonLink_4->setText(link[4]);
+      ui->MonTime_3->setTime(time[3]);
+      ui->MonSub_3->setText(sub[3]);
+      ui->MonLink_3->setText(link[3]);
 
-   ui->TuesTime_1->setTime(time[5]);
-   ui->TuesSub_1->setText(sub[5]);
-   ui->TuesLink_1->setText(link[5]);
+      ui->MonTime_4->setTime(time[4]);
+      ui->MonSub_4->setText(sub[4]);
+      ui->MonLink_4->setText(link[4]);
 
-   ui->TuesTime_2->setTime(time[6]);
-   ui->TuesSub_2->setText(sub[6]);
-   ui->TuesLink_2->setText(link[6]);
+      ui->TuesTime_1->setTime(time[5]);
+      ui->TuesSub_1->setText(link[5]);
+      ui->TuesLink_1->setText(sub[5]);
+
+      ui->TuesTime_2->setTime(time[6]);
+      ui->TuesSub_2->setText(sub[6]);
+      ui->TuesLink_2->setText(link[6]);
+
+
+      ui->TuesTime_3->setTime(time[7]);
+      ui->TuesSub_3->setText(sub[7]);
+      ui->TuesLink_3->setText(link[7]);
+
+      ui->TuesTime_4->setTime(time[8]);
+      ui->TuesSub_4->setText(sub[8]);
+      ui->TuesLink_4->setText(link[8]);
+
+      ui->WedTime_1->setTime(time[9]);
+      ui->WedSub_1->setText(link[9]);
+      ui->WedLink_1->setText(sub[9]);
+
+      ui->WedTime_2->setTime(time[10]);
+      ui->WedSub_2->setText(sub[10]);
+      ui->WedLink_2->setText(link[10]);
+
+
+      ui->WedTime_3->setTime(time[11]);
+      ui->WedSub_3->setText(sub[11]);
+      ui->WedLink_3->setText(link[11]);
+
+      ui->WedTime_4->setTime(time[12]);
+      ui->WedSub_4->setText(sub[12]);
+      ui->WedLink_4->setText(link[12]);
+
+
+      ui->ThurTime_1->setTime(time[13]);
+      ui->ThurSub_1->setText(link[13]);
+      ui->ThurLink_1->setText(sub[13]);
+
+      ui->ThurTime_2->setTime(time[14]);
+      ui->ThurSub_2->setText(sub[14]);
+      ui->ThurLink_2->setText(link[14]);
+
+
+      ui->ThurTime_3->setTime(time[15]);
+      ui->ThurSub_3->setText(sub[15]);
+      ui->ThurLink_3->setText(link[15]);
+
+      ui->ThurTime_4->setTime(time[16]);
+      ui->ThurSub_4->setText(sub[16]);
+      ui->ThurLink_4->setText(link[16]);
+
+      ui->FriTime_1->setTime(time[17]);
+      ui->FriSub_1->setText(link[17]);
+      ui->FriLink_1->setText(sub[17]);
+
+      ui->FriTime_2->setTime(time[18]);
+      ui->FriSub_2->setText(sub[18]);
+      ui->FriLink_2->setText(link[18]);
+
+
+      ui->FriTime_3->setTime(time[19]);
+      ui->FriSub_3->setText(sub[19]);
+      ui->FriLink_3->setText(link[19]);
+
+      ui->FriTime_4->setTime(time[20]);
+      ui->FriSub_4->setText(sub[20]);
+      ui->FriLink_4->setText(link[20]);
 
 
     }catch (const std::exception& ex) {

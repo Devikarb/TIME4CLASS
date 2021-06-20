@@ -13,7 +13,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
@@ -27,44 +26,31 @@ public:
     QPushButton *pushButton;
     QFrame *frame;
     QListView *listView;
-    QGridLayout *gridLayout;
-    QFrame *frame_2;
 
     void setupUi(QDialog *popUp)
     {
         if (popUp->objectName().isEmpty())
             popUp->setObjectName(QString::fromUtf8("popUp"));
-        popUp->resize(425, 321);
-        popUp->setMinimumSize(QSize(425, 321));
-        popUp->setMaximumSize(QSize(425, 321));
+        popUp->resize(500, 400);
+        popUp->setMinimumSize(QSize(500, 400));
+        popUp->setMaximumSize(QSize(500, 400));
+        popUp->setAutoFillBackground(true);
+        popUp->setStyleSheet(QString::fromUtf8("background-image: url(:/resources/img/background2.png);"));
         label = new QLabel(popUp);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(80, 40, 161, 20));
+        label->setGeometry(QRect(120, 20, 261, 81));
+        label->setStyleSheet(QString::fromUtf8("image: url(:/resources/img/image1.png);"));
         pushButton = new QPushButton(popUp);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(300, 250, 93, 28));
+        pushButton->setGeometry(QRect(330, 330, 93, 28));
         frame = new QFrame(popUp);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(40, 200, 120, 80));
+        frame->setGeometry(QRect(50, 280, 120, 80));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         listView = new QListView(popUp);
         listView->setObjectName(QString::fromUtf8("listView"));
-        listView->setGeometry(QRect(80, 40, 256, 192));
-        gridLayout = new QGridLayout(popUp);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        frame_2 = new QFrame(popUp);
-        frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-
-        gridLayout->addWidget(frame_2, 0, 0, 1, 1);
-
-        frame_2->raise();
-        label->raise();
-        pushButton->raise();
-        frame->raise();
-        listView->raise();
+        listView->setGeometry(QRect(120, 121, 261, 191));
 
         retranslateUi(popUp);
         QObject::connect(pushButton, SIGNAL(clicked()), popUp, SLOT(reject()));
@@ -75,7 +61,7 @@ public:
     void retranslateUi(QDialog *popUp)
     {
         popUp->setWindowTitle(QCoreApplication::translate("popUp", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("popUp", "TextLabel", nullptr));
+        label->setText(QString());
         pushButton->setText(QCoreApplication::translate("popUp", "Close", nullptr));
     } // retranslateUi
 
