@@ -22,7 +22,7 @@ public:
     bool connOpen()
     {
         QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
-        mydb.setDatabaseName("time4class.db");
+        mydb.setDatabaseName("C:\\sqlite\\sqlite-tools-win32-x86-3350500\\Time4Class.db");
 
         if(!mydb.open())
         {
