@@ -89,35 +89,31 @@ void Menu:: Test()
                    }
 con.cnnClose();
 
-       qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
-       if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)
-       {
+qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
+    if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time
 
+
+                   {
+                           flag=1+i;                          // Alaram and popup also set flag to 1
+                                                 // Alaram and popup also set flag to 1
+                           popUp PopUp;
+                           PopUp.setModal(true);
+                           PopUp.exec();
+                           DatabseCon con;
 
                             con.connOpen();
-                           QSqlQuery qery;
-                           QString qstr="update  Time_Table set  prevdate=:nowdate  where sno=j";
-                           qry->bindValue(":j", i);
-                           qry->bindValue(":nowdate", nowdate);
-                           QString s = QString::number(i);
-                           qstr.append(s);
-                            qery.prepare("update  Time_Table set  prevdate=:nowdate  where sno:j");
+                            QSqlQuery *qry=new QSqlQuery(con.mydb);
 
+                            qry->prepare("update  Time_Table set prevdate=:nowdate where sno=:j");
+                            qry->bindValue(":j", i);
+                            qry->bindValue(":nowdate", nowdate);
+                            qry->exec();
+                            con.cnnClose();
 
-                           if(qery.exec())
-                           {
-                              qDebug() << "query success:";
-                           }
-                           else
-                           {
-                                qDebug() << "error:"
-                                         << qery.lastError();
-                           }
-
-                         break;
 
 
                      }
+
 
        }
 
