@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
     QTimer::singleShot(3000,splash,SLOT(close()));
     QTimer::singleShot(3000,&w,SLOT(show()));
-    //w.show();
+    w.show();
     w.setWindowTitle("Time4class");
 
     return a.exec();

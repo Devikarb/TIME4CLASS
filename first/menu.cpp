@@ -33,8 +33,14 @@ int flag =0;
 void Menu:: Test()
  {
    QCalendar cal;
+   QString  DBprevdate;
    int dbHour,dbMinute,k=0,i=0, prevday=0;;
    QDate nowDate = QDate::currentDate();
+
+   QString nowdate =nowDate.toString();
+
+
+
    int nowday = cal.dayOfWeek(nowDate) ;// returns 1 for mon ,2 for tue etc..
    qDebug()<<"day"<<nowday;
    QTime now = QTime::currentTime();
@@ -59,43 +65,56 @@ void Menu:: Test()
    }
 
 
- for(i=flag;i<=4;i++){
-       //int QDate::dayOfWeek(QCalendar cal)
-       if(prevday!=nowday)
-               {
-                   prevday=nowday;
-                   flag=0;
-               }
+ for(i=j;i<=j+4;i++){
+
 
       DatabseCon con;
-       j=j+flag;
+
        con.connOpen();
+
        QSqlQuery *qry=new QSqlQuery(con.mydb);
-       qry->prepare("select hour,minute from Time_Table where sno=:j");
-       qry->bindValue(":j", j);
+
+       qry->prepare("select hour,minute,prevdate from Time_Table where sno=:j");
+       qry->bindValue(":j", i);
        qry->exec();
-       j++;
+
        while(qry->next())
                   {
                           //  QVariant h=qry->value(0);
                            dbHour=qry->value(0).toInt();
                            dbMinute=qry->value(1).toInt();
-                        //   qDebug()<<"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"<<h;
+                           DBprevdate=qry->value(2).toString();
+
 
                    }
+con.cnnClose();
+
+       qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
+       if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)
+       {
 
 
-       qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute;
-       if(nowHr==dbHour&&nowMin==dbMinute)//comparing current time and the given time
+                            con.connOpen();
+                           QSqlQuery qery;
+                           QString qstr="update  Time_Table set  prevdate=:nowdate  where sno=j";
+                           qry->bindValue(":j", i);
+                           qry->bindValue(":nowdate", nowdate);
+                           QString s = QString::number(i);
+                           qstr.append(s);
+                            qery.prepare("update  Time_Table set  prevdate=:nowdate  where sno:j");
 
 
-                   {
-                           flag=1+i;                          // Alaram and popup also set flag to 1
-                           popUp PopUp;
-                           PopUp.setModal(true);
-                           PopUp.exec();
+                           if(qery.exec())
+                           {
+                              qDebug() << "query success:";
+                           }
+                           else
+                           {
+                                qDebug() << "error:"
+                                         << qery.lastError();
+                           }
 
-
+                         break;
 
 
                      }
