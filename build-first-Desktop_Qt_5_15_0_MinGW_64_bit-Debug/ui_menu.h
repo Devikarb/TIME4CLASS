@@ -43,10 +43,9 @@ public:
     {
         if (Menu->objectName().isEmpty())
             Menu->setObjectName(QString::fromUtf8("Menu"));
-        Menu->resize(600, 700);
-        Menu->setMinimumSize(QSize(600, 700));
-        Menu->setMaximumSize(QSize(600, 700));
-        Menu->setAutoFillBackground(true);
+        Menu->resize(445, 620);
+        Menu->setMinimumSize(QSize(445, 620));
+        Menu->setMaximumSize(QSize(445, 620));
         Menu->setStyleSheet(QString::fromUtf8("background-image: url(:/resources/img/background2.png);"));
         centralwidget = new QWidget(Menu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -54,7 +53,6 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label_pic = new QLabel(centralwidget);
         label_pic->setObjectName(QString::fromUtf8("label_pic"));
-        label_pic->setAutoFillBackground(false);
         label_pic->setPixmap(QPixmap(QString::fromUtf8(":/resources/img/image1.png")));
         label_pic->setAlignment(Qt::AlignCenter);
 

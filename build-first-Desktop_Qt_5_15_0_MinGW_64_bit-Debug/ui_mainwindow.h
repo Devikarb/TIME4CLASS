@@ -137,7 +137,11 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(650, 719);
+        MainWindow->resize(1284, 760);
+        MainWindow->setMaximumSize(QSize(1285, 760));
+        MainWindow->setLayoutDirection(Qt::LeftToRight);
+        MainWindow->setAutoFillBackground(true);
+        MainWindow->setStyleSheet(QString::fromUtf8("background-image: url(:/resources/img/background2.png);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -660,7 +664,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 650, 25));
+        menubar->setGeometry(QRect(0, 0, 1284, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

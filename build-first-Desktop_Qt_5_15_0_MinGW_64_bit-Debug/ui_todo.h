@@ -11,12 +11,14 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -27,14 +29,19 @@ class Ui_Todo
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QLineEdit *lineEdit;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
-    QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QGridLayout *gridLayout_2;
-    QFrame *frame;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label_logo;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer_2;
+    QVBoxLayout *verticalLayout_2;
+    QSpacerItem *verticalSpacer_2;
+    QLineEdit *lineEdit;
+    QPushButton *pushButton;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout_4;
+    QSpacerItem *verticalSpacer_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -42,45 +49,91 @@ public:
     {
         if (Todo->objectName().isEmpty())
             Todo->setObjectName(QString::fromUtf8("Todo"));
-        Todo->resize(650, 700);
+        Todo->resize(600, 750);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Todo->sizePolicy().hasHeightForWidth());
+        Todo->setSizePolicy(sizePolicy);
+        Todo->setMinimumSize(QSize(600, 750));
+        Todo->setMaximumSize(QSize(600, 750));
+        Todo->setAutoFillBackground(true);
+        Todo->setStyleSheet(QString::fromUtf8("background-image: url(:/resources/img/background2.png);"));
         centralwidget = new QWidget(Todo);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(460, 450, 93, 28));
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        label_logo = new QLabel(centralwidget);
+        label_logo->setObjectName(QString::fromUtf8("label_logo"));
+        label_logo->setPixmap(QPixmap(QString::fromUtf8(":/resources/img/image1.png")));
+        label_logo->setScaledContents(false);
+        label_logo->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_3->addWidget(label_logo);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalSpacer_2 = new QSpacerItem(37, 17, QSizePolicy::Maximum, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
         lineEdit = new QLineEdit(centralwidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(450, 410, 113, 22));
-        verticalLayoutWidget = new QWidget(centralwidget);
-        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(180, 340, 211, 181));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        gridLayoutWidget = new QWidget(centralwidget);
-        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(370, 200, 160, 80));
-        gridLayout = new QGridLayout(gridLayoutWidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        gridLayout_2 = new QGridLayout(centralwidget);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        frame = new QFrame(centralwidget);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
+        lineEdit->setSizePolicy(sizePolicy1);
+        lineEdit->setAutoFillBackground(false);
 
-        gridLayout_2->addWidget(frame, 0, 0, 1, 1);
+        verticalLayout_2->addWidget(lineEdit);
+
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy1);
+        pushButton->setLayoutDirection(Qt::RightToLeft);
+
+        verticalLayout_2->addWidget(pushButton);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+
+        horizontalLayout->addLayout(verticalLayout_2);
+
+        horizontalSpacer = new QSpacerItem(37, 17, QSizePolicy::Maximum, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalSpacer_3 = new QSpacerItem(17, 37, QSizePolicy::Minimum, QSizePolicy::Preferred);
+
+        verticalLayout_4->addItem(verticalSpacer_3);
+
+
+        horizontalLayout->addLayout(verticalLayout_4);
+
+
+        verticalLayout_3->addLayout(horizontalLayout);
+
+
+        gridLayout->addLayout(verticalLayout_3, 0, 0, 1, 1);
 
         Todo->setCentralWidget(centralwidget);
-        frame->raise();
-        pushButton->raise();
-        lineEdit->raise();
-        verticalLayoutWidget->raise();
-        gridLayoutWidget->raise();
         menubar = new QMenuBar(Todo);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 650, 25));
+        menubar->setGeometry(QRect(0, 0, 600, 25));
         Todo->setMenuBar(menubar);
         statusbar = new QStatusBar(Todo);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -94,8 +147,9 @@ public:
     void retranslateUi(QMainWindow *Todo)
     {
         Todo->setWindowTitle(QCoreApplication::translate("Todo", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("Todo", "ADD", nullptr));
+        label_logo->setText(QString());
         lineEdit->setText(QCoreApplication::translate("Todo", "Enter Task", nullptr));
+        pushButton->setText(QCoreApplication::translate("Todo", "ADD", nullptr));
     } // retranslateUi
 
 };
