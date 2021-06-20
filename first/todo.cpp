@@ -74,7 +74,7 @@ void Todo::on_pushButton_clicked()
 void Todo::RemoveTodo()
 {
     QCheckBox* checkbox=qobject_cast<QCheckBox*>(sender());
-    QString text = checkbox->text();
+    QString text = checkbox->objectName();
     //QString pLineEdit = (QCheckBox*)pLine->widget();
   qDebug()<<text;
     delete checkbox;
