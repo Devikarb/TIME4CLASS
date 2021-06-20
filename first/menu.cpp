@@ -59,13 +59,13 @@ void Menu:: Test()
               break;
        case 5:j= 17;
               break;
-      default:j=1;
+      default:j=5;
            break;
 
    }
 
 
- for(i=j;i<=j+4;i++){
+ for(i=j;i<j+4;i++){
 
 
       DatabseCon con;
