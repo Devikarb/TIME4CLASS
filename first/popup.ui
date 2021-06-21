@@ -34,8 +34,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>70</y>
+     <x>70</x>
+     <y>40</y>
      <width>341</width>
      <height>81</height>
     </rect>
@@ -51,7 +51,7 @@
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>330</y>
+     <y>320</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -60,30 +60,46 @@
     <string>Close</string>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>280</y>
-     <width>120</width>
-     <height>80</height>
+     <x>64</x>
+     <y>160</y>
+     <width>191</width>
+     <height>20</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+   <property name="styleSheet">
+    <string notr="true">font: 75 11pt &quot;Leelawadee UI&quot;;</string>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="text">
+    <string>ITS TIME FOR CLASS!!!</string>
    </property>
   </widget>
   <widget class="QListView" name="listView">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>201</y>
-     <width>361</width>
-     <height>111</height>
+     <x>50</x>
+     <y>190</y>
+     <width>371</width>
+     <height>101</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>310</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 8pt &quot;Meiryo UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>HERE'S THE LINK</string>
    </property>
   </widget>
  </widget>

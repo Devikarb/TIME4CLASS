@@ -36,6 +36,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resource.qrc
 
-DISTFILES += \
-    ToDo_final.qml \
-    ToDo_finalForm.ui.qml
+DISTFILES +=

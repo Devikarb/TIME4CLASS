@@ -49,8 +49,8 @@ int i=0;
 
 
    ui->MonTime_1->setTime(time[1]);
-      ui->MonSub_1->setText(link[1]);
-      ui->MonLink_1->setText(sub[1]);
+      ui->MonSub_1->setText(sub[1]);
+      ui->MonLink_1->setText(link[1]);
 
       ui->MonTime_2->setTime(time[2]);
       ui->MonSub_2->setText(sub[2]);
@@ -66,8 +66,8 @@ int i=0;
       ui->MonLink_4->setText(link[4]);
 
       ui->TuesTime_1->setTime(time[5]);
-      ui->TuesSub_1->setText(link[5]);
-      ui->TuesLink_1->setText(sub[5]);
+      ui->TuesSub_1->setText(sub[5]);
+      ui->TuesLink_1->setText(link[5]);
 
       ui->TuesTime_2->setTime(time[6]);
       ui->TuesSub_2->setText(sub[6]);
@@ -83,12 +83,18 @@ int i=0;
       ui->TuesLink_4->setText(link[8]);
 
       ui->WedTime_1->setTime(time[9]);
-      ui->WedSub_1->setText(link[9]);
-      ui->WedLink_1->setText(sub[9]);
+      ui->WedSub_1->setText(sub[9]);
+      ui->WedLink_1->setText(link[9]);
 
       ui->WedTime_2->setTime(time[10]);
       ui->WedSub_2->setText(sub[10]);
       ui->WedLink_2->setText(link[10]);
+      qDebug()<<sub[1]<<sub[2]<<sub[3];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
 
 
       ui->WedTime_3->setTime(time[11]);
@@ -101,8 +107,15 @@ int i=0;
 
 
       ui->ThurTime_1->setTime(time[13]);
-      ui->ThurSub_1->setText(link[13]);
-      ui->ThurLink_1->setText(sub[13]);
+      ui->ThurSub_1->setText(sub[13]);
+      ui->ThurLink_1->setText(link[13]);
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+      qDebug()<<sub[13]<<sub[14]<<sub[15];
+
 
       ui->ThurTime_2->setTime(time[14]);
       ui->ThurSub_2->setText(sub[14]);
@@ -118,8 +131,8 @@ int i=0;
       ui->ThurLink_4->setText(link[16]);
 
       ui->FriTime_1->setTime(time[17]);
-      ui->FriSub_1->setText(link[17]);
-      ui->FriLink_1->setText(sub[17]);
+      ui->FriSub_1->setText(sub[17]);
+      ui->FriLink_1->setText(link[17]);
 
       ui->FriTime_2->setTime(time[18]);
       ui->FriSub_2->setText(sub[18]);
