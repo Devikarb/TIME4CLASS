@@ -185,10 +185,12 @@ font: 75 11pt &quot;Terminal&quot;;</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 11pt &quot;Terminal&quot;;</string>
+          <string notr="true">
+
+font: 11pt &quot;Terminal&quot;;</string>
          </property>
          <property name="text">
-          <string>ONLINE CLASS REMINDER MITS EDITION</string>
+          <string>ONLINE CLASS MANAGER MITS EDITION</string>
          </property>
         </widget>
        </widget>
