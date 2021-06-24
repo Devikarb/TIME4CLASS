@@ -1,17 +1,16 @@
 #ifndef DATABASECON_H
 #define DATABASECON_H
 #include <QMainWindow>
-#include<mainwindow.h>
-#include<todo.h>
+#include <QtSql>
 
-namespace Ui {
-class Menu;
-}
+
+   //static int popno;
 class DatabseCon
 {
 
 
 public:
+
     QSqlDatabase mydb;
     void cnnClose()
     {

@@ -89,12 +89,7 @@ int i=0;
       ui->WedTime_2->setTime(time[10]);
       ui->WedSub_2->setText(sub[10]);
       ui->WedLink_2->setText(link[10]);
-      qDebug()<<sub[1]<<sub[2]<<sub[3];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
+
 
 
       ui->WedTime_3->setTime(time[11]);
@@ -109,12 +104,6 @@ int i=0;
       ui->ThurTime_1->setTime(time[13]);
       ui->ThurSub_1->setText(sub[13]);
       ui->ThurLink_1->setText(link[13]);
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
 
 
       ui->ThurTime_2->setTime(time[14]);

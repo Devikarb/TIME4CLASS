@@ -1,11 +1,12 @@
 #include "menu.h"
 #include "ui_menu.h"
-#include <mainwindow.h>
+#include <MainWindow.h>
 #include<todo.h>
 #include <QTimer>
 #include<QDebug>
 #include<DatabaseCon.h>
 #include<QPixmap>
+
 
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),
@@ -28,6 +29,7 @@ Menu::~Menu()
 {
     delete ui;
 }
+
 int flag =0;
 
 void Menu:: Test()
@@ -38,9 +40,6 @@ void Menu:: Test()
    QDate nowDate = QDate::currentDate();
 
    QString nowdate =nowDate.toString();
-
-
-
    int nowday = cal.dayOfWeek(nowDate) ;// returns 1 for mon ,2 for tue etc..
    qDebug()<<"day"<<nowday;
    QTime now = QTime::currentTime();
@@ -89,17 +88,19 @@ void Menu:: Test()
                    }
 con.cnnClose();
 
-qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
-    if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time
+    qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
+   // if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time
 
 
                    {
-                           flag=1+i;                          // Alaram and popup also set flag to 1
-                                                 // Alaram and popup also set flag to 1
+                          DatabseCon con;
+                                              // Alaram and popup also set flag to 1
+
+                          //qDebug()<<popno;// Alaram and popup also set flag to 1
                            popUp PopUp;
                            PopUp.setModal(true);
                            PopUp.exec();
-                           DatabseCon con;
+
 
                             con.connOpen();
                             QSqlQuery *qry=new QSqlQuery(con.mydb);
