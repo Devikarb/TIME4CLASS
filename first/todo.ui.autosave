@@ -89,19 +89,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QGraphicsView" name="graphicsView">
-            <property name="styleSheet">
-             <string notr="true">background-image: url(:/resources/img/background1.png);</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Minimum</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>

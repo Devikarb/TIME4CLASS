@@ -12,11 +12,15 @@ Todo::Todo(QWidget *parent) :
     ui(new Ui::Todo)
 {
     ui->setupUi(this);
+
+
     DatabseCon con;
     con.connOpen();
+
     QSqlQuery *qry=new QSqlQuery(con.mydb);
+
     qry->prepare("select dicrp from ToDo");
-    qry->exec();
+qry->exec();
 
     while(qry->next())
                {
