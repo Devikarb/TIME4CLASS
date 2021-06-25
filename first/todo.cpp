@@ -78,16 +78,16 @@ void Todo::RemoveTodo()
 {
     QCheckBox* checkbox=qobject_cast<QCheckBox*>(sender());
     QString text = checkbox->text();
-    //QString pLineEdit = jjjjj(QCheckBox*)pLine->widget();
-     qDebug()<<text;
-     qDebug()<<text;
+
+
+    qDebug()<<text;
     delete checkbox;
-     DatabseCon con;
+    DatabseCon con;
     con.connOpen();
     QSqlQuery *qry=new QSqlQuery(con.mydb);
- QString qstr="DELETE FROM  ToDo WHERE dicrp=('"+text+"' )";
+    QString qstr="DELETE FROM  ToDo WHERE dicrp=('"+text+"' )";
     qry->prepare(qstr);
- qDebug() << qstr;
+    qDebug() << qstr;
     qry->bindValue(":text", text);
 
 

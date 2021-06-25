@@ -6,17 +6,16 @@
 #include<QDebug>
 #include<DatabaseCon.h>
 #include<QPixmap>
+#include "commondata.h"
+
 
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Menu)
 {
-   // MainWindow m;
+
    ui->setupUi(this);
-
-
-
- QTimer *timer = new QTimer(this);
+   QTimer *timer = new QTimer(this);
    connect(timer, SIGNAL(timeout()), this, SLOT(Test()));
    timer->start(1000);
 
@@ -90,13 +89,15 @@ void Menu:: Test()
 con.cnnClose();
 
 qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
-    if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time
+   //if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time
 
 
                    {
-                           flag=1+i;                          // Alaram and popup also set flag to 1
-                                                 // Alaram and popup also set flag to 1
-                           popUp PopUp;
+                                                    // Alaram and popup also set flag to 1
+
+                                           // Alaram and popup also set flag to 1
+                           popUp PopUp(i);
+
                            PopUp.setModal(true);
                            PopUp.exec();
                            DatabseCon con;
