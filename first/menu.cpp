@@ -6,7 +6,7 @@
 #include<QDebug>
 #include<DatabaseCon.h>
 #include<QPixmap>
-#include "commondata.h"
+
 
 
 Menu::Menu(QWidget *parent) :
@@ -14,9 +14,9 @@ Menu::Menu(QWidget *parent) :
     ui(new Ui::Menu)
 {
 
-   ui->setupUi(this);
+   ui->setupUi(this);// creating timer
    QTimer *timer = new QTimer(this);
-   connect(timer, SIGNAL(timeout()), this, SLOT(Test()));
+   connect(timer, SIGNAL(timeout()), this, SLOT(Timecheck()));// connectiing timer to the slot
    timer->start(1000);
 
 
@@ -27,21 +27,17 @@ Menu::~Menu()
 {
     delete ui;
 }
-int flag =0;
 
-void Menu:: Test()
+
+void Menu:: Timecheck() // to check if the current time matches  with any of the time given in the database
  {
    QCalendar cal;
    QString  DBprevdate;
-   int dbHour,dbMinute,k=0,i=0, prevday=0;;
+   int dbHour,dbMinute,i=0;
    QDate nowDate = QDate::currentDate();
-
    QString nowdate =nowDate.toString();
-
-
-
    int nowday = cal.dayOfWeek(nowDate) ;// returns 1 for mon ,2 for tue etc..
-   qDebug()<<"day"<<nowday;
+   qDebug()<<"day"<<nowday;// storing the day
    QTime now = QTime::currentTime();
    int nowHr=now.hour();
    int nowMin=now.minute();
@@ -89,7 +85,7 @@ void Menu:: Test()
 con.cnnClose();
 
 qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
-   //if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time
+   if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time
 
 
                    {

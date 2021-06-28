@@ -1,7 +1,7 @@
 #ifndef DATABASECON_H
 #define DATABASECON_H
 #include <QMainWindow>
-#include<mainwindow.h>
+#include <QtSql>
 #include<todo.h>
 
 namespace Ui {
@@ -12,14 +12,14 @@ class DatabseCon
 
 
 public:
-    QSqlDatabase mydb;
-    void cnnClose()
-    {
+QSqlDatabase mydb;
+    void cnnClose() //funtion  close the connection
+    { QSqlDatabase mydb;// creating sqlit object
       mydb.close();
       mydb.removeDatabase(QSqlDatabase::defaultConnection);
 
     }
-    bool connOpen()
+    bool connOpen()// to add database connection
     {
         QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
         mydb.setDatabaseName("C:\\sqlite\\sqlite-tools-win32-x86-3350500\\Time4Class.db");

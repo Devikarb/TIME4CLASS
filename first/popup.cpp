@@ -7,7 +7,7 @@
 #include "commondata.h"
 
 
-int i=1;
+
 popUp::popUp(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::popUp)
@@ -74,12 +74,12 @@ void popUp::on_label_linkActivated(const QString &link)
 
 
 void popUp::on_pushButton_clicked()
-{i=0;
+{
 
 }
 
 void popUp::alarm()
-{i=0;
+{
     QApplication::beep() ;
 
 }

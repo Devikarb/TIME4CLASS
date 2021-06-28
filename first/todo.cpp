@@ -12,15 +12,11 @@ Todo::Todo(QWidget *parent) :
     ui(new Ui::Todo)
 {
     ui->setupUi(this);
-
-
     DatabseCon con;
     con.connOpen();
-
     QSqlQuery *qry=new QSqlQuery(con.mydb);
-
     qry->prepare("select dicrp from ToDo");
-qry->exec();
+    qry->exec();
 
     while(qry->next())
                {
@@ -46,24 +42,18 @@ Todo::~Todo()
 }
 
 void Todo::on_pushButton_clicked()
-{   QString text = ui->lineEdit->text();
+{
+    QString text = ui->lineEdit->text();
     QString checkBoxText=text;
     QCheckBox* checkbox=new QCheckBox(checkBoxText);
     ui->verticalLayout_4->addWidget(checkbox);
     QObject::connect(checkbox,&QCheckBox::stateChanged,this,&Todo::RemoveTodo);
-
-     DatabseCon con;
+    DatabseCon con;
     con.connOpen();
     QSqlQuery *qry=new QSqlQuery(con.mydb);
-
     qry->prepare("INSERT INTO ToDo (dicrp)  VALUES ('"+text+"') ");
 
-
-
-
-
-
-        if(qry->exec())
+    if(qry->exec())
         {
            qDebug() << "query success:";
         }
@@ -78,8 +68,6 @@ void Todo::RemoveTodo()
 {
     QCheckBox* checkbox=qobject_cast<QCheckBox*>(sender());
     QString text = checkbox->text();
-
-
     qDebug()<<text;
     delete checkbox;
     DatabseCon con;
