@@ -70,9 +70,9 @@ void Todo::RemoveTodo()
     QString text = checkbox->text();
     qDebug()<<text;
     delete checkbox;
-    DatabseCon con;
-    con.connOpen();
-    QSqlQuery *qry=new QSqlQuery(con.mydb);
+
+    connOpen();
+    QSqlQuery *qry=new QSqlQuery(mydb);
     QString qstr="DELETE FROM  ToDo WHERE dicrp=('"+text+"' )";
     qry->prepare(qstr);
     qDebug() << qstr;
