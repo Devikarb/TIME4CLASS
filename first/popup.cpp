@@ -23,6 +23,7 @@ popUp::popUp(int poupno, QWidget *parent):
 {
     ui->setupUi(this);
      putdata(poupno);
+     alarm();
 
 }
 
@@ -36,12 +37,11 @@ popUp::~popUp()
 
 void popUp::putdata(int no)
 {   QString sub,link;
-    commondata cd;
-    DatabseCon con;
-    con.connOpen();
-    QSqlQuery *qry=new QSqlQuery(con.mydb);
-    qry->prepare("select link,sub from Time_Table where sno=:i");
-    qry->bindValue(":i",no);
+
+    connOpen();// opening the db connection
+    QSqlQuery *qry=new QSqlQuery(mydb);
+    qry->prepare("select link,sub from Time_Table where sno=:i");  // prepairing the query to fetch the data from the table
+    qry->bindValue(":i",no); //binding  the i in thre query with no
 
         if(qry->exec())
         {
@@ -52,31 +52,22 @@ void popUp::putdata(int no)
              qDebug() << "error:"
                       << qry->lastError();
         }
-        while(qry->next())
+        while(qry->next())// executing the query here it is fetching only one row of data that contAINS one link and one sub
         {
 
-               link=qry->value(0).toString();
+               link=qry->value(0).toString();// the first value fetched is stored into the variable link
 
-               sub=qry->value(1).toString();
+               sub=qry->value(1).toString();//
 
 
          }
-    ui->textEdit->setText(link);
-    ui->label_sub->setText(sub);
+    ui->textEdit->setText(link);//to set the link in the edit tect box
+    ui->label_sub->setText(sub);// to set the sub
 
 
 }
 
-void popUp::on_label_linkActivated(const QString &link)
-{
 
-}
-
-
-void popUp::on_pushButton_clicked()
-{
-
-}
 
 void popUp::alarm()
 {

@@ -8,20 +8,20 @@
 #include <QDebug>
 #include <QCalendar>
 #include "DatabaseCon.h"
-QTime tm;
+
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    try{
+
     ui->setupUi(this);
 
-   DatabseCon con;
+
     QSqlQueryModel *modal= new QSqlQueryModel();
-    con.connOpen();
-    QSqlQuery *qry=new QSqlQuery(con.mydb);
+    connOpen();
+    QSqlQuery *qry=new QSqlQuery(mydb);
     qry->prepare("select  time,sub,link from Time_Table");
     //qry->prepare("select * from Time_Table");
     qry->exec();
@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
 int i=0;
    while(qry->next())
                {
-                    i++;   //  QVariant h=qry->value(0);
+                    i++;
                       time[i]=qry->value(0).toTime();
 
                         sub[i]=qry->value(1).toString();
@@ -89,12 +89,7 @@ int i=0;
       ui->WedTime_2->setTime(time[10]);
       ui->WedSub_2->setText(sub[10]);
       ui->WedLink_2->setText(link[10]);
-      qDebug()<<sub[1]<<sub[2]<<sub[3];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
+
 
 
       ui->WedTime_3->setTime(time[11]);
@@ -109,13 +104,6 @@ int i=0;
       ui->ThurTime_1->setTime(time[13]);
       ui->ThurSub_1->setText(sub[13]);
       ui->ThurLink_1->setText(link[13]);
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-      qDebug()<<sub[13]<<sub[14]<<sub[15];
-
 
       ui->ThurTime_2->setTime(time[14]);
       ui->ThurSub_2->setText(sub[14]);
@@ -148,13 +136,13 @@ int i=0;
       ui->FriLink_4->setText(link[20]);
 
 
-    }catch (const std::exception& ex) {
-        qDebug()<<"Exception .."<< ex.what();
-      } catch (...) {
- qDebug()<<"Exception ..";
-      }
+    }
 
-}
+
+
+
+
+
 
 MainWindow::~MainWindow()
 {
@@ -172,18 +160,18 @@ public:
 
            void MainWindow:: addTime(QTime Time,int no)
            {
-                       DatabseCon con;
+
                        qInfo()<<"time handler";
                        int Hr=Time.hour();
                        int Min=Time.minute();
                        qDebug()<<"hr"<<Hr<<"min"<<Min;
                        // cl.monday[0]=time;
-                       if(!con.connOpen())
+                       if(!connOpen())
                        {
                                     qInfo()<<"not connected";
                                     return ;
                        }
-                       con.connOpen();
+                       connOpen();
 
 
                        QSqlQuery qry;
@@ -205,21 +193,21 @@ public:
                                        << query.lastError();
                          }
                        qInfo( "time changed" );
-                       con.cnnClose();
+                       cnnClose();
                        }
    void MainWindow ::Addlink(QString link,int no)
 
 
             {
-                       DatabseCon con;
 
 
-                     if(!con.connOpen())
+
+                     if(!connOpen())
                      {
                                   qInfo()<<"not connected";
                                   return ;
                      }
-                     con.connOpen();
+                     connOpen();
 
 
 
@@ -238,22 +226,21 @@ public:
                                      << query.lastError();
                        }
                      qInfo( "link inserted" );
-                    con.cnnClose();
+                    cnnClose();
            }
 
    void MainWindow ::AddSub(QString Sub,int no)
 
 
             {
-                       DatabseCon con;
 
 
-                     if(!con.connOpen())
+                     if(!connOpen())
                      {
                                   qInfo()<<"not connected";
                                   return ;
                      }
-                     con.connOpen();
+                    connOpen();
 
 
 
@@ -272,7 +259,7 @@ public:
                                      << query.lastError();
                        }
                      qInfo( "link inserted" );
-                    con.cnnClose();
+                  cnnClose();
            }
 
 

@@ -63,11 +63,10 @@ void Menu:: Timecheck() // to check if the current time matches  with any of the
  for(i=j;i<j+4;i++){
 
 
-      DatabseCon con;
 
-       con.connOpen();
+       connOpen();
 
-       QSqlQuery *qry=new QSqlQuery(con.mydb);
+       QSqlQuery *qry=new QSqlQuery(mydb);
 
        qry->prepare("select hour,minute,prevdate from Time_Table where sno=:j");
        qry->bindValue(":j", i);
@@ -82,7 +81,7 @@ void Menu:: Timecheck() // to check if the current time matches  with any of the
 
 
                    }
-con.cnnClose();
+cnnClose();
 
 qDebug()<<"nowhr="<<nowHr<<"dbhr"<<dbHour<<"min"<<dbMinute<<"nowdate"<<nowdate<<"prevdate"<<DBprevdate;
    if(nowHr==dbHour&&nowMin==dbMinute&&nowdate!=DBprevdate)//comparing current time and the given time

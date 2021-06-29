@@ -20,16 +20,12 @@ public:
     int poupno;
     popUp();
     explicit popUp(QWidget *parent = nullptr);
-    popUp(int poupno,QWidget *parent = nullptr);
+    popUp(int poupno,QWidget *parent = nullptr);// constructor overloading
     ~popUp();
     void putdata(int no);
 
 private slots:
 
-    void on_label_linkActivated(const QString &link);
-
-
-    void on_pushButton_clicked();
     void alarm();
 
 private:
