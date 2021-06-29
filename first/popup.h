@@ -2,13 +2,17 @@
 #define POPUP_H
 
 #include <QDialog>
+#include<DatabaseCon.h>
+#include "commondata.h"
+
 
 
 namespace Ui {
 class popUp;
+class DatabseCon;
 }
 
-class popUp : public QDialog
+class popUp : public QDialog,public DatabseCon
 {
     Q_OBJECT
 

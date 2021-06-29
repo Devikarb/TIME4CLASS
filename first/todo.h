@@ -2,13 +2,15 @@
 #define TODO_H
 
 #include <QMainWindow>
+#include<DatabaseCon.h>
 
 
 namespace Ui {
 class Todo;
+class DatabseCon;
 }
 
-class Todo : public QMainWindow
+class Todo : public QMainWindow,public DatabseCon
 {
     Q_OBJECT
 

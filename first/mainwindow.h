@@ -5,13 +5,15 @@
 
 #include <QFileInfo>
 #include<popup.h>
+#include<DatabaseCon.h>
 
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class MainWindow;
+             class DatabseCon;}
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow,public DatabseCon
 {
     Q_OBJECT
 

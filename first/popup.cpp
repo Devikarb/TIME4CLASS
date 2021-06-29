@@ -13,7 +13,7 @@ popUp::popUp(QWidget *parent) :
     ui(new Ui::popUp)
 {
           ui->setupUi(this);
-          putdata(poupno);
+
 
 }
 

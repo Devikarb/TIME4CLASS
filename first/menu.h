@@ -4,13 +4,17 @@
 #include <QMainWindow>
 #include<mainwindow.h>
 #include<todo.h>
+#include<DatabaseCon.h>
+
+
 
 
 namespace Ui {
 class Menu;
+class DatabseCon;
 }
 
-class Menu : public QMainWindow
+class Menu : public QMainWindow,public DatabseCon
 {
     Q_OBJECT
 
