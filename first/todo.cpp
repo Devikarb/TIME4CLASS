@@ -44,7 +44,9 @@ Todo::~Todo()
 void Todo::on_pushButton_clicked()
 {
     QString text = ui->lineEdit->text();
-    if(text!=""){
+    QString prevText;
+    if(text!=prevText){
+      prevText  =text;
     QString checkBoxText=text;
     QCheckBox* checkbox=new QCheckBox(checkBoxText);
     ui->verticalLayout_4->addWidget(checkbox);
