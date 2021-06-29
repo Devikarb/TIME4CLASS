@@ -5,7 +5,7 @@
 #include<QDebug>
 #include<QSplashScreen>
 #include<QTimer>
-#include "commondata.h"
+
 
 
 

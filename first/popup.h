@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include<DatabaseCon.h>
-#include "commondata.h"
+
 
 
 
