@@ -150,13 +150,9 @@ MainWindow::~MainWindow()
 }
 
 
-class classReminder
-{
-public:
 
-};
 
-    QString link, subname;
+
 
            void MainWindow:: addTime(QTime Time,int no)
            {
@@ -174,9 +170,9 @@ public:
                        connOpen();
 
 
-                       QSqlQuery qry;
+                        QSqlQuery qry;
                         qInfo()<<Time.toString();
-                       QSqlQuery query;
+                        QSqlQuery query;
                         query.prepare("update  Time_Table set hour=:monHr,minute=:monMin,time=:Time where sno=:no");
                         query.bindValue(":monHr", Hr);
                         query.bindValue(":monMin", Min);

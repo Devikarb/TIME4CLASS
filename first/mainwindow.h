@@ -27,7 +27,7 @@ public:
 
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
- void load();
+
 
 
 private slots:
